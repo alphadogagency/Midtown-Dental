@@ -1,0 +1,153 @@
+---
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '../styles/global.css';
+import '../styles/homepage.css';
+const oldSite = 'https://www.midtowndentalcare.org';
+const services = [
+  { name: 'Everyday & preventive care', note: 'A healthy start. A healthier future.', description: 'Keep your smile on track with regular exams, cleanings, and care for your gums. We take time to explain what we see and talk through your next steps.', href: '/services/preventative-dentistry/' },
+  { name: 'Cosmetic dentistry', note: 'A smile that feels like you.', description: 'Explore teeth whitening, veneers, and clear aligners with a team that listens to what you want to change—and what you already love about your smile.', href: '/services/cosmetic-dentistry-milwaukee/' },
+  { name: 'Crowns & restorative care', note: 'Get back to your everyday.', description: 'From fillings to crowns and bridges, we help restore the comfort and function of your teeth. Our CEREC technology makes same-day crowns an option right here in our office.', href: '/services/cerec-crown-milwaukee/' },
+  { name: 'Dental implants', note: 'Let’s talk about what’s possible.', description: 'Missing teeth can change how you eat, speak, and smile. We’ll walk you through your implant options and help you understand a treatment plan made for you.', href: '/services/dental-implants-milwaukee/' },
+  { name: 'Care for children', note: 'Little smiles are a big deal.', description: 'We help children build a comfortable relationship with the dentist, with patient, encouraging care as their smiles grow.', href: '/services/pediatric-dentist-milwaukee/' },
+];
+const providers = [
+  { name: 'Dr. AnnMarie Hoyme', image: 'annmarie-hoyme.jpg', href: '/team/dr-annmarie-hoyme/' },
+  { name: 'Dr. Karla Schmidt', image: 'karla-schmidt.jpg', href: '/team/dr-karla-schmidt/' },
+  { name: 'Dr. Mark Crego', image: 'mark-crego.jpg', href: '/team/dr-crego/' },
+];
+const googleReviews = 'https://www.google.com/maps/place/MidTown+Dental+Care/@43.0607569,-88.0219774,17z/data=!4m8!3m7!1s0x880504c7f8b17a49:0x7e9b72a60e8a01a4!8m2!3d43.0606698!4d-88.0219602!9m1!1b1!16s%2Fg%2F11btwrb265';
+const practiceSchema = {
+  '@context': 'https://schema.org', '@type': 'Dentist', name: 'MidTown Dental Care',
+  url: oldSite, telephone: '+1-414-258-5351',
+  address: { '@type': 'PostalAddress', streetAddress: '8726 W. North Ave', addressLocality: 'Wauwatosa', addressRegion: 'WI', postalCode: '53226', addressCountry: 'US' },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday'], opens: '08:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday'], opens: '08:00', closes: '15:00' },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Get to know MidTown Dental Care in Wauwatosa, WI. Welcoming family dentistry, modern technology, and a team that takes the time to know you." />
+    <meta name="theme-color" content="#183e35" />
+    <title>MidTown Dental Care | Your Neighborhood Dentist in Wauwatosa</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <link rel="canonical" href={`${oldSite}/`} />
+    <meta property="og:title" content="MidTown Dental Care | Modern care. A familiar feeling." />
+    <meta property="og:description" content="Welcoming family dentistry in Wauwatosa, Wisconsin. Get to know your neighborhood dental team." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${oldSite}/`} />
+    <script type="application/ld+json" set:html={JSON.stringify(practiceSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="utility-bar">
+      <a href="https://maps.app.goo.gl/zaHUajak3e7CWQKe8" target="_blank" rel="noopener noreferrer">8726 W. North Ave · Wauwatosa, WI</a>
+      <div><a href="https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main" target="_blank" rel="noopener noreferrer">Patient forms</a><span aria-hidden="true">/</span><a href="https://midtowndentalcaresc.secure.lq-pay.net/" target="_blank" rel="noopener noreferrer">Pay online</a></div>
+    </div>
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="MidTown Dental Care home"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#our-practice">Our practice</a><a href="#care">Our care</a><a href="#team">Meet the team</a><a href="#visit">Your first visit</a>
+      </nav>
+      <a class="button header-cta" href="#appointment">Let’s get you smiling</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="#our-practice">Our practice</a><a href="#care">Our care</a><a href="#team">Meet the team</a><a href="#visit">Your first visit</a><a href="#appointment">Request an appointment</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="short-rule" aria-hidden="true"></span> Rooted in Wauwatosa</p>
+          <h1 id="hero-title">Modern care.<br />A familiar<br /><em>feeling.</em></h1>
+          <p class="hero-description">Good dentistry starts with feeling at home. Get to know a team that cares for your smile—and the person behind it.</p>
+          <div class="hero-actions"><a class="button" href="#appointment">Request an appointment</a><a class="text-link" href="#our-practice">Get to know us</a></div>
+          <div class="hero-footnote"><span class="little-cross" aria-hidden="true">✳</span><p>For little smiles. For growing families.<br />For every stage of life.</p></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo"><img src="/images/office-reception.jpg" width="800" height="533" alt="The sunlit reception and waiting room at MidTown Dental Care" fetchpriority="high" /></div>
+          <div class="photo-note"><span class="note-number">40<span>+</span></span><p>years of caring<br />for our community</p></div>
+          <div class="image-caption"><span>YOUR DENTAL HOME, CLOSE TO HOME.</span><span>WAUWATOSA, WI</span></div>
+        </div>
+      </section>
+      <div class="welcome-strip"><span>Familiar faces.</span><span>Thoughtful care.</span><span>A reason to smile.</span></div>
+
+      <section id="our-practice" class="introduction section-wrap" aria-labelledby="practice-title">
+        <div class="intro-heading"><p class="eyebrow">A little about us</p><h2 id="practice-title">A neighborhood practice.<br />A <em>personal</em> connection.</h2></div>
+        <div class="intro-copy"><p>For more than 40 years, MidTown Dental Care has been part of the Wauwatosa community. We’ve cared for generations of families, and we’re always happy to get to know someone new.</p><p>Led by Dr. Laura Russell, our practice brings modern dentistry and a down-to-earth approach together. We listen first, explain your options, and help you feel comfortable with your care.</p><a class="text-link" href={`${oldSite}/team/about/`}>More about our practice</a></div>
+      </section>
+
+      <section id="care" class="care-section" aria-labelledby="care-title">
+        <div class="section-wrap care-layout">
+          <div class="care-intro"><p class="eyebrow">Care for your whole smile</p><h2 id="care-title">From the everyday<br />to the <em>life-changing.</em></h2><p>A checkup. A fresh start. Something you’ve been putting off. Let’s find the right care for you.</p>
+            <figure class="care-image"><img src="/images/office-treatment.jpg" width="800" height="533" alt="Digital dental technology in a MidTown treatment room decorated with Milwaukee neighborhood posters" loading="lazy" /><figcaption>Modern dentistry. Right here in your neighborhood.</figcaption></figure>
+          </div>
+          <div class="service-list">{services.map((service, index) => <details class="service" name="dental-services" open={index === 0}>
+            <summary><span class="service-index">0{index + 1}</span><h3>{service.name}</h3><span class="expand-icon" aria-hidden="true"></span></summary>
+            <div class="service-content"><p class="service-note">{service.note}</p><p>{service.description}</p><a class="text-link" href={`${oldSite}${service.href}`}>Explore this care</a></div>
+          </details>)}<a class="text-link all-services" href={`${oldSite}/dental-services/`}>View all dental services</a></div>
+        </div>
+      </section>
+
+      <section id="team" class="team-section section-wrap" aria-labelledby="team-title">
+        <div class="laura-portrait"><img src="/images/laura-russell.jpg" width="900" height="1166" alt="Dr. Laura Russell, owner of MidTown Dental Care" loading="lazy" /><div class="portrait-label"><span>Dr. Laura Russell</span><span>DENTIST & PRACTICE OWNER</span></div></div>
+        <div class="team-copy"><p class="eyebrow">Meet your dental team</p><h2 id="team-title">Expert hands.<br /><em>Kind hearts.</em></h2><p>Dr. Laura Russell believes great dentistry begins with getting to know you. A University of Michigan School of Dentistry graduate, she’s spent more than 20 years caring for patients in Wisconsin.</p><p>Alongside Dr. Hoyme, Dr. Schmidt, and Dr. Crego, she brings experience, curiosity, and a personal touch to your visit.</p><a class="text-link" href={`${oldSite}/team/dr-laura-russell/`}>Get to know Dr. Russell</a>
+          <div class="team-portraits">{providers.map(provider => <a class="provider" href={`${oldSite}${provider.href}`}><div><img src={`/images/${provider.image}`} width="400" height="518" alt={provider.name} loading="lazy" /></div><span>{provider.name}</span></a>)}</div>
+        </div>
+      </section>
+
+      <section class="comfort-section" aria-labelledby="comfort-title">
+        <div class="comfort-photo"><img src="/images/office-lounge.jpg" width="800" height="533" alt="The family-friendly corner of our waiting room, with a fireplace, books, and a children's play table" loading="lazy" /><span class="photo-label">MAKE YOURSELF AT HOME.</span></div>
+        <div class="comfort-copy"><p class="eyebrow">A different kind of dental visit</p><h2 id="comfort-title">Come as you are.<br /><em>Feel at ease.</em></h2><p>A little nervous? It’s okay to tell us. We’ll take the time to answer your questions and help make your visit feel more comfortable.</p><div class="comfort-points"><p><span>01</span> A welcoming space for every generation</p><p><span>02</span> Digital impressions and same-day crown technology</p><p><span>03</span> Comfort options, including nitrous oxide</p></div><a class="text-link" href={`${oldSite}/office/`}>Take a look around our office</a></div>
+      </section>
+
+      <section class="testimonial section-wrap" aria-label="A patient's experience"><p class="eyebrow">Kind words from our community</p><span class="quote-mark" aria-hidden="true">“</span><blockquote>Warm and welcoming from check in to check out, <em>everyone was friendly!</em> Great experience all around!!</blockquote><div class="review-attribution"><span>Bonnie H.</span><span class="review-divider" aria-hidden="true"></span><span>Google review</span></div><a class="text-link" href={googleReviews} target="_blank" rel="noopener noreferrer">Read more patient stories</a></section>
+
+      <section id="visit" class="visit-section" aria-labelledby="visit-title"><div class="section-wrap visit-layout"><div><p class="eyebrow">Your first visit</p><h2 id="visit-title">New here?<br /><em>You’re in good company.</em></h2><p>Let’s make your first appointment feel a little more familiar.</p><a class="text-link" href="https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main" target="_blank" rel="noopener noreferrer">Complete your patient forms</a></div><div class="faq-list">
+        <details><summary>What should I expect at my first visit?<span class="expand-icon" aria-hidden="true"></span></summary><p>Plan for about 90 minutes. Your visit typically includes X-rays, a periodontal exam, and a cleaning. If your gums need additional care, your dental team will explain any further appointments and discuss your treatment options with you.</p></details>
+        <details><summary>What if I feel nervous about dental care?<span class="expand-icon" aria-hidden="true"></span></summary><p>Let us know when you schedule. We’ll listen to your concerns and explain each step. We offer entertainment with headphones and nitrous oxide for eligible patients at an additional charge. Your dentist can help you choose what’s right for you.</p></details>
+        <details><summary>Are there options to help with the cost?<span class="expand-icon" aria-hidden="true"></span></summary><p>We offer financing through Cherry, CareCredit, and Sunbit, as well as an in-house membership option for patients without dental insurance. <a href={`${oldSite}/payment/`}>Learn about payment options.</a></p></details>
+      </div></div></section>
+
+      <section id="appointment" class="appointment-section" aria-labelledby="appointment-title"><div class="appointment-heading"><p class="eyebrow">We’d love to meet you</p><h2 id="appointment-title">Your next chapter<br />starts with a <em>smile.</em></h2><p>Tell us a little about what you need.<br />We’ll help you take the next step.</p><a class="button button-light" href="tel:+14142613376">Call to schedule a visit</a><p class="appointment-phone">New patients <a href="tel:+14142613376">(414) 261-3376</a><br />Already part of our family? <a href="tel:+14142585351">(414) 258-5351</a></p></div><div class="visit-card"><span class="eyebrow">Find us in Wauwatosa</span><h3>Right in the<br /><em>neighborhood.</em></h3><address>8726 W. North Ave<br />Wauwatosa, WI 53226</address><a class="text-link" href="https://maps.app.goo.gl/zaHUajak3e7CWQKe8" target="_blank" rel="noopener noreferrer">Get directions</a><div class="hours"><span>OFFICE HOURS</span><dl><div><dt>Monday–Thursday</dt><dd>8 am–5 pm</dd></div><div><dt>Friday</dt><dd>8 am–3 pm</dd></div></dl></div><p class="visit-card-note">A familiar place on North Avenue.<br />A team ready to welcome you.</p></div></section>
+      <!-- The supplied Jotform will be integrated in the appointment section. Until then, scheduling uses the practice’s existing phone numbers. -->
+    </main>
+    <footer class="site-footer"><div class="footer-main"><a class="brand" href="/" aria-label="MidTown Dental Care home"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" loading="lazy" /></a><p>Modern dentistry.<br />A neighborhood connection.</p><nav aria-label="Footer navigation"><a href="#our-practice">Our practice</a><a href="#care">Our care</a><a href="#team">Our team</a><a href="#appointment">Contact us</a></nav><div class="footer-socials"><a href="https://www.facebook.com/midtowndentalcarescwauwatosa" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/midtowndentalcare" target="_blank" rel="noopener noreferrer">Instagram</a></div></div><div class="footer-bottom"><p>© {new Date().getFullYear()} MidTown Dental Care. All rights reserved.</p><span>8726 W. North Ave · Wauwatosa, WI 53226</span><a href="#main">Back to top</a></div></footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+      function closeMenu() {
+        if (!toggle || !menu) return;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+        menu.hidden = true;
+      }
+      toggle?.addEventListener('click', () => {
+        if (!menu) return;
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        toggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+        menu.hidden = expanded;
+      });
+      menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+          closeMenu(); toggle.focus();
+        }
+      });
+      document.addEventListener('click', event => {
+        if (event.target instanceof Node && !menu?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
+      });
+      matchMedia('(min-width: 851px)').addEventListener('change', closeMenu);
+    </script>
+  </body>
+</html>
