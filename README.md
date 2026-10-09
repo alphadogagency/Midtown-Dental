@@ -29,7 +29,7 @@ The appointment section (`#appointment`) currently offers working click-to-call 
 
 - Client design direction: Laura’s September 28, 2026 “Comp Sites” email; a balance between Emily Stout DDS and 816 Med Spa, modern and family-friendly.
 - Copy source: https://www.midtowndentalcare.org/ and its provider, office, services, and patient information pages, checked October 7, 2026.
-- Photos and logo: existing Midtown website; no generated people, office scenes, or new branding.
+- Photos and logo: existing Midtown website. The two homepage waiting-room photos use edited copies with the retired books and train table removed following Laura’s October 9 feedback. Originals are preserved in `public/images/`; edited sources are in `src/assets/images/` and Astro produces responsive WebP files. The image-editing tool and exact prompts are recorded in `docs/photo-edits.json`.
 - Patient quote: Bonnie H., as published on the existing site, linked to the practice’s Google reviews.
 - Confirm provider roster, phone numbers, hours, financing, and clinical details with the practice before launch.
 - The existing logo is 318 × 111 pixels. Replace with a higher-resolution or vector original if supplied.
