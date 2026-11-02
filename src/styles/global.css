@@ -8,3 +8,11 @@
 
 .hero-description{font-size:1rem}.header-cta{font-size:.875rem}.utility-bar{font-size:.75rem}.eyebrow{font-size:.75rem}.image-caption{font-size:.75rem;letter-spacing:.06em}.hero-footnote,.photo-note p{font-size:.75rem}
 @media(max-width:600px){.utility-bar>a{font-size:.75rem;max-width:160px}.utility-bar>div{gap:10px}.image-caption{font-size:.75rem}.image-caption span:last-child{display:none}.hero h1 br:nth-of-type(2){display:initial}}
+
+.mobile-contact-bar{display:none}
+@media(max-width:850px){
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px))}
+  .mobile-contact-bar{position:fixed;z-index:30;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;background:var(--green);color:var(--paper);padding:6px 7% calc(6px + env(safe-area-inset-bottom,0px));border-top:1px solid #ffffff35;gap:12px}
+  .mobile-contact-bar a{display:flex;align-items:center;justify-content:center;min-height:46px;font-size:.8125rem;line-height:1.4;text-align:center}
+  .mobile-contact-bar a:last-child{background:#e6ebd7;color:var(--green)}
+}

@@ -4,7 +4,7 @@ Website redesign for Dr. Laura Russell’s Wauwatosa practice. Built in Astro wi
 
 ## Development
 
-Requires Node 22.12 or later.
+Requires Node 22.22 or later.
 
 ```sh
 npm install
@@ -17,7 +17,7 @@ Use the local URL printed by Astro. The production build is written to `dist/`.
 
 ## Cloudflare
 
-For Cloudflare Pages, set the build command to `npm run build` and the output directory to `dist`. The Node version must be 22.12 or newer. No server adapter, database, secrets, or environment variables are required.
+For Cloudflare Pages, set the build command to `npm run build` and the output directory to `dist`. The Node version must be 22.22 or newer. No server adapter, database, secrets, or environment variables are required.
 
 This remains a **staging preview**, not a complete production migration. The approved homepage and 19 core routes are built: four doctor bios, seven service pages (including single-tooth implants, no-prep veneers, and pediatric dentistry), two service directories, the team directory, practice, office, first-visit, payment, and contact pages. The existing paths are preserved. Routes not yet rebuilt still link to the current client website.
 
@@ -44,3 +44,11 @@ The appointment section (`#appointment`) and `/contact/` currently offer click-t
 - Add the supplied Jotform and verify submission delivery before enabling online appointment requests.
 - Update service/provider URLs to local routes as additional pages are built; preserve old URLs or add redirects at migration.
 - Preview index protection is configured in `public/robots.txt`, `public/_headers`, and `src/layouts/SiteLayout.astro`. Keep all three until the complete migration is ready. At the approved production launch, coordinate indexability with staging retirement, add the sitemap reference to production robots.txt, and verify the actual response headers and HTML on the production domain.
+
+## Agency standards
+
+The user-supplied ADA web checklist and design standard were received November 2. `AGENTS.md` contains Part B and the current stage/brand guardrails. The full eight-section assessment is in the private readiness report. No checklist section is treated as complete merely because the documents are now available.
+
+The November 2 standards pass adds a persistent mobile call/request bar, Apple touch icon, Open Graph photo, two local font preloads, and responsive WebP derivatives for all displayed practice photos. The privacy footer link currently reaches the existing production policy. That policy is rendered by Termageddon; its ownership/license and updated legal copy need review before migration, and no legacy policy script was copied.
+
+The share-image origin in `src/layouts/SiteLayout.astro` intentionally points to the preview while staging. Change it to the final production origin before retiring Pages staging. Astro is pinned to 7.4.1 and `.node-version` pins the tested Node 22.22.2 runtime. The standards pass dependency audit reports zero vulnerabilities; this is not proof of account ownership, 2FA, form security, or backup restoration.
