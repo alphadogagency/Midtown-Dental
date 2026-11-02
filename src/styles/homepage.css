@@ -14,3 +14,9 @@
 @media(max-width:600px){.portrait-label{flex-wrap:wrap}.portrait-label>span:last-child{max-width:none}.provider>span{font-size:.75rem}.hours dl>div{font-size:.8125rem}}
 
 @media(max-width:600px){.appointment-section{grid-template-columns:minmax(0,1fr)}.appointment-heading,.visit-card{min-width:0}.visit-card{padding-left:28px;padding-right:28px}.visit-card h3{font-size:clamp(38px,11vw,45px)}}
+
+/* Keep the practice address and contact number available in every footer. */
+.footer-bottom{flex-wrap:wrap;align-items:center}
+.footer-bottom>span{display:block;line-height:1.8}
+.footer-bottom small{display:block;font-size:inherit}
+@media(max-width:850px){.footer-bottom>span{display:block;flex-basis:100%;order:3}}

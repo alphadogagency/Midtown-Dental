@@ -1,0 +1,5 @@
+# Legacy links found returning 404 on November 2, 2026.
+# These three matching destinations are built. This is not the full migration map.
+/services/preventive-dentistry/ /services/preventative-dentistry/ 301
+/services/dental-implant-services/ /services/dental-implants-milwaukee/ 301
+/services/childhood/ /services/pediatric-dentist-milwaukee/ 301

@@ -1,0 +1,41 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { practice, practiceSchema } from '../data/practice';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '../styles/global.css';
+import '../styles/homepage.css';
+interface Props { title: string; description: string; ogTitle?: string; home?: boolean; }
+const { title, description, ogTitle = title, home = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, practice.site).href;
+const isNotFound = Astro.url.pathname === '/404/';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <!-- Preview protection: remove only after the documented migration gates pass. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#183e35" />
+    <title>{title}</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    {!isNotFound && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(practiceSchema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader home={home} />
+    <slot />
+    <SiteFooter home={home} />
+  </body>
+</html>

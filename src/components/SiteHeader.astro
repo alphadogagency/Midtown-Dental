@@ -1,0 +1,45 @@
+---
+const { home = false } = Astro.props;
+---
+    <div class="utility-bar">
+      <a href="https://maps.app.goo.gl/zaHUajak3e7CWQKe8" target="_blank" rel="noopener noreferrer">8726 W. North Ave · Wauwatosa, WI</a>
+      <div><a href="https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main" target="_blank" rel="noopener noreferrer">Patient forms</a><span aria-hidden="true">/</span><a href="https://midtowndentalcaresc.secure.lq-pay.net/" target="_blank" rel="noopener noreferrer">Pay online</a></div>
+    </div>
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="MidTown Dental Care home"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href={home ? "#our-practice" : "/team/about/"}>Our practice</a><a href={home ? "#care" : "/dental-services/"}>Our care</a><a href={home ? "#team" : "/team/"}>Meet the team</a><a href={home ? "#visit" : "/first-appointment/"}>Your first visit</a>
+      </nav>
+      <a class="button header-cta" href={home ? "#appointment" : "/contact/"}>Let’s get you smiling</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href={home ? "#our-practice" : "/team/about/"}>Our practice</a><a href={home ? "#care" : "/dental-services/"}>Our care</a><a href={home ? "#team" : "/team/"}>Meet the team</a><a href={home ? "#visit" : "/first-appointment/"}>Your first visit</a><a href={home ? "#appointment" : "/contact/"}>Request an appointment</a>
+      </nav>
+    </header>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+      function closeMenu() {
+        if (!toggle || !menu) return;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+        menu.hidden = true;
+      }
+      toggle?.addEventListener('click', () => {
+        if (!menu) return;
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        toggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+        menu.hidden = expanded;
+      });
+      menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+          closeMenu(); toggle.focus();
+        }
+      });
+      document.addEventListener('click', event => {
+        if (event.target instanceof Node && !menu?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
+      });
+      matchMedia('(min-width: 851px)').addEventListener('change', closeMenu);
+    </script>

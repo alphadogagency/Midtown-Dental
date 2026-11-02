@@ -1,0 +1,17 @@
+---
+import { practice } from '../data/practice';
+---
+<aside class="contact-details" aria-label="Contact and office hours">
+  <p class="eyebrow">MidTown Dental Care</p>
+  <h2>Right in the<br /><em>neighborhood.</em></h2>
+  <address>8726 W. North Ave<br />Wauwatosa, WI 53226</address>
+  <a class="text-link" href={practice.maps} target="_blank" rel="noopener noreferrer">Get directions</a>
+  <dl class="contact-phones">
+    <div><dt>New patients</dt><dd><a href={`tel:${practice.newPatientTelephone}`}>{practice.newPatientPhone}</a></dd></div>
+    <div><dt>Existing patients</dt><dd><a href={`tel:${practice.telephone}`}>{practice.phone}</a></dd></div>
+  </dl>
+  <dl class="contact-hours">
+    <div><dt>Monday–Thursday</dt><dd>8 am–5 pm</dd></div>
+    <div><dt>Friday</dt><dd>8 am–3 pm</dd></div>
+  </dl>
+</aside>
