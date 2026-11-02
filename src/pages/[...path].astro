@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ContactDetails from '../components/ContactDetails.astro';
+import SmileGallery from '../components/SmileGallery.astro';
+import AppointmentForm from '../components/AppointmentForm.astro';
 import pages from '../data/core-pages.json';
 import catalog from '../data/service-catalog.json';
 import { practice } from '../data/practice';
@@ -17,6 +19,8 @@ const { page } = Astro.props;
 const doctors = pages.filter(item => item.kind === 'doctor');
 const services = pages.filter(item => item.kind === 'service');
 const isDoctor = page.kind === 'doctor';
+const isProfile = isDoctor || page.kind === 'staff';
+const staff = pages.filter(item => item.kind === 'staff');
 const isService = page.kind === 'service';
 const isContact = page.kind === 'contact';
 const contents = [...page.html.matchAll(/<h2 id="([^"]+)">(.*?)<\/h2>/gs)].map(match => ({ id: match[1], text: match[2].replace(/<[^>]+>/g, '').replaceAll('&amp;', '&') }));
@@ -41,23 +45,23 @@ const introductions: Record<string, string> = {
   office: 'Get to know the familiar space on North Avenue where we welcome patients of every generation.',
   'first-appointment': 'A new dental home starts with getting to know each other. Here’s what to expect when we meet.',
   payment: 'Our team can help you understand your treatment estimate, available payment options, and current dental benefits.',
-  contact: 'A question, a first visit, or your next appointment. Give us a call—we’ll help you take the next step.',
+  contact: 'A question, a first visit, or your next appointment. Send us a request—we’ll help you take the next step.',
 };
 ---
 <SiteLayout title={page.title} description={page.description}>
   <main id="main" class="interior-page">
-    <section class:list={['interior-hero', 'section-wrap', { 'doctor-hero': isDoctor, 'contact-hero': isContact }]}>
+    <section class:list={['interior-hero', 'section-wrap', { 'doctor-hero': isProfile, 'contact-hero': isContact }]}>
       <div class="interior-hero-copy">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{isService && <><a href="/dental-services/">Our care</a><span aria-hidden="true">/</span></>}{isDoctor && <><a href="/team/">Our team</a><span aria-hidden="true">/</span></>}<span aria-current="page">{page.name}</span></nav>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>{isService && <><a href="/dental-services/">Our care</a><span aria-hidden="true">/</span></>}{isProfile && <><a href="/team/">Our team</a><span aria-hidden="true">/</span></>}<span aria-current="page">{page.name}</span></nav>
         <p class="eyebrow"><span class="short-rule" aria-hidden="true"></span>{page.eyebrow}</p>
         <h1>{page.h1}</h1>
-        {introductions[page.path] && <p class="interior-intro">{introductions[page.path]}</p>}
-        <div class="interior-actions"><a class="button" href={isContact ? `tel:${practice.newPatientTelephone}` : '/contact/'}>{isContact ? 'Call to request a visit' : 'Request an appointment'}</a><a class="text-link" href={`tel:${practice.telephone}`}>{practice.phone}</a></div>
+        {(introductions[page.path] || page.intro) && <p class="interior-intro">{introductions[page.path] || page.intro}</p>}
+        <div class="interior-actions"><a class="button" href={isContact ? '#appointment-form' : '/contact/'}>Request an appointment</a><a class="text-link" href={`tel:${practice.telephone}`}>{practice.phone}</a></div>
       </div>
-      {isDoctor ? <figure class="interior-portrait"><Image src={practiceImages[page.image]} widths={page.path === 'team/dr-laura-russell' ? [320, 600, 900] : [240, 400]} sizes="(max-width: 700px) 90vw, 35vw" format="webp" quality={85} width={page.path === 'team/dr-laura-russell' ? 900 : 400} height={page.path === 'team/dr-laura-russell' ? 1166 : 518} alt={page.name} loading="eager" /><figcaption>{page.name}<span>{page.eyebrow}</span></figcaption></figure> : isService ? <figure class="interior-office"><Image src={practiceImages['office-treatment.jpg']} widths={[400, 800]} sizes="(max-width: 700px) 90vw, 40vw" format="webp" quality={85} width="800" height="533" alt="A treatment room at MidTown Dental Care in Wauwatosa" loading="eager" /><figcaption>Thoughtful care. Right here in Wauwatosa.</figcaption></figure> : isContact ? <ContactDetails /> : <figure class="interior-office"><Image src={receptionPhoto} width={800} height={533} widths={[480, 800]} sizes="(max-width: 700px) 90vw, 40vw" format="webp" quality={85} alt="The welcoming reception at MidTown Dental Care" loading="eager" /><figcaption>Your dental home, close to home.</figcaption></figure>}
+      {isProfile ? <figure class="interior-portrait"><Image src={practiceImages[page.image]} widths={page.path === 'team/dr-laura-russell' ? [320, 600, 900] : [240, 400]} sizes="(max-width: 700px) 90vw, 35vw" format="webp" quality={85} width={page.path === 'team/dr-laura-russell' ? 900 : 400} height={page.path === 'team/dr-laura-russell' ? 1166 : 518} alt={page.name} loading="eager" /><figcaption>{page.name}<span>{page.eyebrow}</span></figcaption></figure> : isService ? <figure class="interior-office"><Image src={practiceImages['office-treatment.jpg']} widths={[400, 800]} sizes="(max-width: 700px) 90vw, 40vw" format="webp" quality={85} width="800" height="533" alt="A treatment room at MidTown Dental Care in Wauwatosa" loading="eager" /><figcaption>Thoughtful care. Right here in Wauwatosa.</figcaption></figure> : isContact ? <ContactDetails /> : <figure class="interior-office"><Image src={receptionPhoto} width={800} height={533} widths={[480, 800]} sizes="(max-width: 700px) 90vw, 40vw" format="webp" quality={85} alt="The welcoming reception at MidTown Dental Care" loading="eager" /><figcaption>Your dental home, close to home.</figcaption></figure>}
     </section>
 
-    {(isDoctor || isService || ['practice', 'office', 'visit'].includes(page.kind)) && <section class="interior-reading section-wrap">
+    {(isProfile || isService || ['practice', 'office', 'visit', 'resource', 'financing', 'reviews', 'gallery'].includes(page.kind)) && <section class="interior-reading section-wrap">
       <aside class="reading-aside">
         {isDoctor ? <><p class="eyebrow">Education & experience</p><ul class="education-list">{education[page.path]?.map(item => <li>{item}</li>)}</ul><a class="text-link" href="/team/">Meet the whole team</a></> : contents.length > 0 ? <nav aria-label="On this page"><p class="eyebrow">In this guide</p><ul>{contents.map(item => <li><a href={`#${item.id}`}>{item.text}</a></li>)}</ul></nav> : <><p class="eyebrow">A little more familiar</p><nav aria-label="Explore our practice"><ul><li><a href="/team/">Meet your dental team</a></li><li><a href="/first-appointment/">Your first visit</a></li><li><a href="/payment/">Payment options</a></li></ul></nav></>}
       </aside>
@@ -68,11 +72,21 @@ const introductions: Record<string, string> = {
 
     {page.kind === 'services' && <section class="section-wrap service-directory" aria-labelledby="directory-title"><div class="directory-heading"><p class="eyebrow">Find your care</p><h2 id="directory-title">Here for your<br /><em>whole smile.</em></h2></div><div class="directory-links">{catalog.map((item, index) => <a href={item.href}><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.name}</h3><span aria-hidden="true">↗</span></a>)}</div></section>}
 
+    {page.kind === 'gallery' && <SmileGallery />}
+
+    {page.kind === 'team' && <section class="section-wrap staff-directory"><h2>More familiar faces</h2><div>{staff.map(person => <a class="staff-card" href={`/${person.path}/`}><Image src={practiceImages[person.image]} width={240} height={300} widths={[160, 240, 400]} sizes="(max-width: 700px) 35vw, 180px" format="webp" alt={person.name} loading="lazy" /><div><h3>{person.name}</h3><span class="text-link">Meet {person.name.split(' ')[0]}</span></div></a>)}</div></section>}
+
+    {['practice', 'office', 'visit', 'payment', 'resource', 'financing', 'reviews', 'gallery', 'team', 'staff'].includes(page.kind) && <section class="section-wrap patient-resources" aria-label="Explore MidTown Dental Care"><p class="eyebrow">More about your dental home</p><nav>{[
+      ['what-sets-us-apart', 'Why choose MidTown'], ['before-after', 'Smile gallery'], ['reviews', 'Patient reviews'], ['membership', 'Dental membership'], ['cherry-financing', 'Cherry financing'], ['first-appointment', 'Your first visit'], ['office', 'Our office'], ['dental-services', 'Explore our care']
+    ].filter(([path]) => path !== page.path).map(([path, label]) => <a href={`/${path}/`}>{label}<span aria-hidden="true">↗</span></a>)}</nav></section>}
+
     {page.kind === 'office' && <section class="section-wrap office-gallery" aria-label="A look around our office"><figure><Image src={loungePhoto} width={1200} height={800} widths={[480, 800, 1200]} sizes="(max-width: 700px) 90vw, 60vw" format="webp" quality={85} alt="The fireplace and reception window in our welcoming waiting room" loading="lazy" /><figcaption>A welcoming place to settle in.</figcaption></figure><figure><Image src={practiceImages['office-treatment.jpg']} widths={[400, 800]} sizes="(max-width: 700px) 90vw, 40vw" format="webp" quality={85} width="800" height="533" alt="Digital dental equipment in our Wauwatosa treatment room" loading="lazy" /><figcaption>Modern technology. A personal touch.</figcaption></figure></section>}
 
-    {page.kind === 'payment' && <section class="interior-reading section-wrap"><aside class="reading-aside"><p class="eyebrow">A clear next step</p><a class="button" href={practice.payment} target="_blank" rel="noopener noreferrer">Make a payment</a></aside><article class="reading-copy"><h2>Options for your care</h2><p>We offer financing through Cherry, CareCredit, and Sunbit, as well as an in-house dental membership option for patients without dental insurance. Our team can talk through the options available for your treatment.</p><p><a href={`${practice.site}/cherry-financing/`}>Learn about Cherry financing</a> or <a href={`${practice.site}/membership/`}>explore our dental membership plan</a>.</p><h2>Your dental benefits</h2><p>Contact our team before your visit to discuss your current benefits and anticipated costs. We’ll help you understand your payment options.</p><p><a href={`tel:${practice.telephone}`}>Call {practice.phone}</a></p></article></section>}
+    {page.kind === 'payment' && <section class="interior-reading section-wrap"><aside class="reading-aside"><p class="eyebrow">A clear next step</p><a class="button" href={practice.payment} target="_blank" rel="noopener noreferrer">Make a payment</a></aside><article class="reading-copy"><h2>Options for your care</h2><p>We offer financing through Cherry, CareCredit, and Sunbit, as well as an in-house dental membership option for patients without dental insurance. Our team can talk through the options available for your treatment.</p><p><a href="/cherry-financing/">Learn about Cherry financing</a> or <a href="/membership/">explore our dental membership plan</a>.</p><h2>Your dental benefits</h2><p>Contact our team before your visit to discuss your current benefits and anticipated costs. We’ll help you understand your payment options.</p><p><a href={`tel:${practice.telephone}`}>Call {practice.phone}</a></p></article></section>}
 
     {page.kind === 'visit' && <section class="section-wrap patient-forms-panel"><div><p class="eyebrow">Before we meet</p><h2>A little preparation.<br /><em>A more familiar visit.</em></h2></div><div><p>Complete your patient forms through our existing secure forms service before your visit.</p><a class="button" href={practice.forms} target="_blank" rel="noopener noreferrer">Open patient forms</a></div></section>}
+
+    {isContact && <section class="section-wrap contact-form-section" aria-label="Request an appointment"><AppointmentForm /></section>}
 
     {isContact && <section class="section-wrap contact-help"><div><p class="eyebrow">Already part of our family?</p><h2>We’re here<br /><em>to help.</em></h2><p>For an existing appointment or a question about your care, call <a href={`tel:${practice.telephone}`}>{practice.phone}</a>.</p></div><nav aria-label="Patient resources"><a class="text-link" href="/first-appointment/">Prepare for your first visit</a><a class="text-link" href={practice.forms} target="_blank" rel="noopener noreferrer">Complete patient forms</a><a class="text-link" href={practice.payment} target="_blank" rel="noopener noreferrer">Pay online</a><a class="text-link" href="/payment/">Explore payment options</a></nav></section>}
 

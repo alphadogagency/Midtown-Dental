@@ -10,6 +10,7 @@ import { practice } from '../data/practice';
     <div><dt>New patients</dt><dd><a href={`tel:${practice.newPatientTelephone}`}>{practice.newPatientPhone}</a></dd></div>
     <div><dt>Existing patients</dt><dd><a href={`tel:${practice.telephone}`}>{practice.phone}</a></dd></div>
   </dl>
+  <p class="contact-email"><a href={`mailto:${practice.email}`}>{practice.email}</a></p>
   <dl class="contact-hours">
     <div><dt>Monday–Thursday</dt><dd>8 am–5 pm</dd></div>
     <div><dt>Friday</dt><dd>8 am–3 pm</dd></div>

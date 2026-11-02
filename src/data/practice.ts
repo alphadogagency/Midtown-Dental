@@ -8,6 +8,8 @@ export const practice = {
   telephone: '+14142585351',
   newPatientPhone: '(414) 261-3376',
   newPatientTelephone: '+14142613376',
+  // Published accessibility contact; Bryan confirmed this form recipient Nov 2.
+  email: 'frontdesk@midtowndentalcare.net',
   maps: 'https://maps.app.goo.gl/zaHUajak3e7CWQKe8',
   forms: 'https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main',
   payment: 'https://midtowndentalcaresc.secure.lq-pay.net/',

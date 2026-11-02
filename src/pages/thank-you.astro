@@ -1,0 +1,21 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import '../styles/interior.css';
+---
+<SiteLayout title="Thank you | MidTown Dental Care" description="What happens after you request an appointment with MidTown Dental Care.">
+  <main id="main" class="section-wrap request-thanks">
+    <p class="eyebrow">MidTown Dental Care</p>
+    <h1>Thank you for<br /><em>reaching out.</em></h1>
+    <p>Your appointment request has been submitted. Our team will contact you to arrange a visit.</p>
+    <p><strong>Your appointment is not yet confirmed.</strong></p>
+    <p>This form is not monitored for emergencies.</p>
+    <div class="interior-actions"><a class="button" href="/">Back to our homepage</a><a class="text-link" href="/first-appointment/">Prepare for your first visit</a></div>
+  </main>
+</SiteLayout>
+<style>
+  .request-thanks{padding-top:85px;padding-bottom:100px;max-width:1050px}
+  h1{font:400 clamp(48px,7vw,88px)/1.06 var(--serif);letter-spacing:-.025em;margin:24px 0 32px}
+  h1 em{font-weight:400;color:#668069}
+  p:not(.eyebrow){max-width:600px;line-height:1.8;margin-bottom:16px;color:var(--muted)}
+  @media(max-width:600px){.request-thanks{padding-top:50px;padding-bottom:60px}}
+</style>

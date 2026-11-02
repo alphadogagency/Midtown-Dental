@@ -1,0 +1,28 @@
+---
+const formUrl = 'https://form.jotform.com/263055223419049';
+---
+<div class="appointment-form" id="appointment-form">
+  <iframe
+    id="JotFormIFrame-263055223419049"
+    title="MidTown Dental Care appointment request"
+    src={formUrl}
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    height="1250"
+  ></iframe>
+  <p class="form-fallback">Having trouble with the form? <a href={formUrl} target="_blank" rel="noopener noreferrer">Open the appointment request in a new tab</a>.</p>
+</div>
+<!-- Jotform's official iframe helper handles resizing and validation scrolling. -->
+<script is:inline src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script is:inline>
+  if (typeof window.jotformEmbedHandler === 'function') {
+    window.jotformEmbedHandler("iframe[id='JotFormIFrame-263055223419049']", 'https://form.jotform.com/');
+  }
+</script>
+<style>
+  .appointment-form{min-width:0;background:#f7f6f0;color:#183e35;scroll-margin-top:110px}
+  iframe{display:block;width:100%;max-width:100%;border:0;min-height:500px}
+  .form-fallback{padding:0 28px 28px;font-size:.875rem;line-height:1.6}
+  .form-fallback a{text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:480px){.form-fallback{padding:0 16px 24px}}
+</style>
