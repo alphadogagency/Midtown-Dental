@@ -3,3 +3,31 @@
 /services/preventive-dentistry/ /services/preventative-dentistry/ 301
 /services/dental-implant-services/ /services/dental-implants-milwaukee/ 301
 /services/childhood/ /services/pediatric-dentist-milwaukee/ 301
+
+# Retired advertising paths: send visitors to the matching existing service.
+/ppc-cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/ppc-cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/dental-implants-in-wauwatosa-wi/ /services/dental-implants-milwaukee/ 301
+/dental-implants-in-wauwatosa-wi /services/dental-implants-milwaukee/ 301
+/thank-you-ppc-cosmetic-dentist-in-wauwatosa/ /thank-you/ 301
+/thank-you-ppc-cosmetic-dentist-in-wauwatosa /thank-you/ 301
+/thank-you-ppc-dental-implants-in-wauwatosa-wi/ /thank-you/ 301
+/thank-you-ppc-dental-implants-in-wauwatosa-wi /thank-you/ 301
+
+# This old post duplicated a benefits article under a cosmetic-dentistry title.
+# Its original source remains archived; the topic now leads to the matching service.
+/how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for/ /services/cosmetic-dentistry-milwaukee/ 301
+/how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for /services/cosmetic-dentistry-milwaukee/ 301
+# These archives contained only that duplicate post.
+/category/best-cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/category/best-cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/category/cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/category/cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/category/cosmetic-dentist-near-me-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/category/cosmetic-dentist-near-me-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/tag/best-cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/tag/best-cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/tag/cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/tag/cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
+/tag/cosmetic-dentist-near-me-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
+/tag/cosmetic-dentist-near-me-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301

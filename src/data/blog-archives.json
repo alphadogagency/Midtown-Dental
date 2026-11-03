@@ -10,7 +10,6 @@
       "discover-a-dentist-in-wauwatosa-families-can-count-on",
       "help-your-child-shine-give-kids-a-smile-in-wauwatosa",
       "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle",
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for",
       "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
       "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa",
       "same-day-crowns-in-wauwatosa-who-wore-it-better",
@@ -66,14 +65,6 @@
     ]
   },
   {
-    "path": "category/best-cosmetic-dentist-in-wauwatosa",
-    "title": "Best Cosmetic Dentist in Wauwatosa",
-    "type": "category",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
-    ]
-  },
-  {
     "path": "category/blog",
     "title": "Blog",
     "type": "category",
@@ -122,22 +113,6 @@
     "type": "category",
     "posts": [
       "discover-a-dentist-in-wauwatosa-families-can-count-on"
-    ]
-  },
-  {
-    "path": "category/cosmetic-dentist-in-wauwatosa",
-    "title": "Cosmetic Dentist in Wauwatosa",
-    "type": "category",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
-    ]
-  },
-  {
-    "path": "category/cosmetic-dentist-near-me-in-wauwatosa",
-    "title": "Cosmetic Dentist Near Me in Wauwatosa",
-    "type": "category",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
     ]
   },
   {
@@ -291,14 +266,6 @@
     ]
   },
   {
-    "path": "tag/best-cosmetic-dentist-in-wauwatosa",
-    "title": "Best Cosmetic Dentist in Wauwatosa",
-    "type": "tag",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
-    ]
-  },
-  {
     "path": "tag/best-dentist-in-wauwatosa",
     "title": "Best Dentist in Wauwatosa",
     "type": "tag",
@@ -336,22 +303,6 @@
     "type": "tag",
     "posts": [
       "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal"
-    ]
-  },
-  {
-    "path": "tag/cosmetic-dentist-in-wauwatosa",
-    "title": "Cosmetic Dentist in Wauwatosa",
-    "type": "tag",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
-    ]
-  },
-  {
-    "path": "tag/cosmetic-dentist-near-me-in-wauwatosa",
-    "title": "Cosmetic Dentist Near Me in Wauwatosa",
-    "type": "tag",
-    "posts": [
-      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
     ]
   },
   {

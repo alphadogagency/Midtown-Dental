@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'outputs/launch-2026-11-02/source'
 EVIDENCE = ROOT / 'outputs/launch-2026-11-02/blog-migration'
 ASSETS = json.loads((EVIDENCE / 'asset-map.json').read_text())
+ADJUSTMENTS = json.loads((ROOT / 'src/data/blog-migration-adjustments.json').read_text())
 class Node:
     def __init__(self, tag='', attrs=(), parent=None):
         self.tag, self.attrs, self.parent, self.children = tag, dict(attrs), parent, []
@@ -116,16 +117,29 @@ for url in sitemap('post-sitemap.xml'):
     classes=container.attrs.get('class','').split()
     posts.append({'path':path,'title':normalized(next(n for n in root.walk() if n.tag=='title').text()),'heading':title,'description':description,'excerpt':before[:185].rsplit(' ',1)[0]+('…' if len(before)>185 else ''),'published':article['datePublished'],'modified':article.get('dateModified',article['datePublished']),'publishingCredit':meta(root,'author'),'html':html,'image':({**image,'alt':image_node.attrs.get('alt','')} if image else None),'categories':[c.removeprefix('category-') for c in classes if c.startswith('category-')],'tags':[c.removeprefix('tag-') for c in classes if c.startswith('tag-')],'source':url})
 posts.sort(key=lambda p:p['published'],reverse=True)
+source_posts = posts[:]
+source_post_count = len(posts)
+redirected_posts = ADJUSTMENTS['redirectedPosts']
+posts = [post for post in posts if post['path'] not in redirected_posts]
+for post in posts:
+    if post['path'] in ADJUSTMENTS['coverImages']:
+        post['image'] = ADJUSTMENTS['coverImages'][post['path']]
 archives=[{'path':'blog','title':'Patient Education','type':'all','posts':[p['path'] for p in posts]}]
+redirected_archives = []
 for kind, filename, field in [('category','category-sitemap.xml','categories'),('tag','post_tag-sitemap.xml','tags')]:
     for url in sitemap(filename):
         path=urlparse(url).path.strip('/');slug=path.split('/')[-1];r=load_path(path)
         title=normalized(next(n for n in r.walk() if n.tag=='title').text())
         label=re.split(r'\s+(?:Archives|\||—|–| - )',title,maxsplit=1)[0]
         matches=[p['path'] for p in posts if slug in p[field]]
-        assert matches, path
+        if not matches:
+            # The duplicate cosmetic post was the sole entry in six archives.
+            original_matches = {p['path'] for p in source_posts if slug in p[field]}
+            assert original_matches and original_matches <= set(redirected_posts), path
+            redirected_archives.append(path)
+            continue
         archives.append({'path':path,'title':label,'type':kind,'posts':matches})
 (ROOT/'src/data/blog-posts.json').write_text(json.dumps(posts,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'src/data/blog-archives.json').write_text(json.dumps(archives,ensure_ascii=False,indent=2)+'\n')
-(EVIDENCE/'import-verification.json').write_text(json.dumps({'posts':len(posts),'archives':len(archives),'text_checks':text_checks,'internal_link_repairs':changes,'body_heading_demotions':heading_changes,'missing_body_images':missing_images,'posts_without_feature_image':[p['path'] for p in posts if not p['image']]},indent=2))
-print(json.dumps({'posts':len(posts),'archives':len(archives),'body_text_preserved':all(c['text_preserved'] for c in text_checks),'missing_body_images':missing_images,'missing_feature_images':[p['path'] for p in posts if not p['image']]},indent=2))
+(EVIDENCE/'import-verification.json').write_text(json.dumps({'source_posts':source_post_count,'posts':len(posts),'archives':len(archives),'redirected_posts':redirected_posts,'redirected_archives':redirected_archives,'cover_replacements':ADJUSTMENTS['coverImages'],'text_checks':text_checks,'internal_link_repairs':changes,'body_heading_demotions':heading_changes,'missing_body_images':missing_images,'posts_without_feature_image':[p['path'] for p in posts if not p['image']]},indent=2))
+print(json.dumps({'source_posts':source_post_count,'posts':len(posts),'archives':len(archives),'redirected_posts':redirected_posts,'redirected_archives':redirected_archives,'body_text_preserved':all(c['text_preserved'] for c in text_checks),'missing_body_images':missing_images},indent=2))

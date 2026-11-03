@@ -1,0 +1,40 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import '../styles/interior.css';
+---
+<SiteLayout title="COVID-19 Response | MidTown Dental Care" description="Archived MidTown Dental Care office notice, published in 2020 and last updated in 2022. Contact our team for current appointment guidance.">
+  <main id="main" class="section-wrap archived-office-notice">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/office/">Our office</a></nav>
+    <header>
+      <p class="eyebrow">Archived office notice</p>
+      <h1>COVID-19 Response</h1>
+      <p class="notice-date">Originally published <time datetime="2020-05-04">May 4, 2020</time> · Last updated <time datetime="2022-05-12">May 12, 2022</time></p>
+    </header>
+    <aside class="archive-context" aria-label="About this archived notice">
+      <p>This notice describes office procedures at the time it was published. <a href="/contact/">Contact our team for current appointment and office guidance</a> before your visit.</p>
+    </aside>
+    <article class="reading-copy historical-notice-copy" aria-label="Original office notice">
+      <h2>Your health and safety are of the utmost importance to us!</h2>
+      <p>With The recent COVID-19 pandemic, the following are additional protocols that have been implemented in our office.</p>
+      <ul>
+        <li>All toys and magazines have been removed from the waiting room.</li>
+        <li>There are fewer chairs in the waiting room to help promote social distancing.</li>
+        <li>All of our providers are wearing scrubs in the office and are laundered on a daily basis. These scrubs do not leave the office.</li>
+        <li>During your appointment, your provider may wear a face shield, N95 masks, or Level 3 masks.</li>
+        <li>Each operatory has an air-purifying system with HEPV filters</li>
+        <li>A hand sanitizing station is located in the front area of the office.</li>
+      </ul>
+    </article>
+    <nav class="notice-links" aria-label="Plan your visit"><a href="/first-appointment/">Prepare for your first appointment</a><a href="/office/">Explore our office</a><a href="/contact/">Contact MidTown</a></nav>
+  </main>
+</SiteLayout>
+<style>
+  .archived-office-notice{max-width:1080px;margin:auto;padding-top:35px;padding-bottom:75px}
+  header{margin:40px 0 28px}h1{font:400 clamp(44px,6vw,72px)/1.1 var(--serif);margin:20px 0}
+  .notice-date{font-size:.875rem;color:var(--muted)}
+  .archive-context{max-width:780px;border-left:3px solid var(--green);background:var(--cream);padding:22px 25px;margin-bottom:40px;line-height:1.7}
+  .archive-context a,.notice-links a{text-decoration:underline;text-underline-offset:4px}
+  .historical-notice-copy{max-width:780px}.historical-notice-copy h2{font-size:clamp(30px,4vw,42px)}
+  .notice-links{display:flex;flex-wrap:wrap;gap:18px 30px;border-top:1px solid var(--line);margin-top:35px;padding-top:25px;font-size:.875rem}
+  @media(max-width:600px){.archived-office-notice{padding-top:25px;padding-bottom:45px}.archive-context{padding:18px}.notice-links{flex-direction:column}}
+</style>
