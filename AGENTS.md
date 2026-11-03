@@ -2,11 +2,13 @@
 
 ## Current scope and fixed guardrails
 
+- November 3 indexing exception: Bryan explicitly authorized enabling indexing on the live MidTown domain and submitting its production sitemap in the verified Google Search Console URL-prefix property. Production content may be crawled/indexed; keep every `pages.dev` preview and the thank-you/error pages noindex. Preserve the supplied Google verification tag. This overrides the earlier production-noindex gate only; it does not authorize DNS changes, ads, stakeholder messages, inventing legal/author content, or claiming the remaining launch checks are complete.
+
 - November 2 blog exception: Bryan explicitly authorized recreating all 50 historical articles now and deferring individual author/reviewing-doctor details. Preserve original publishing credits (Brew City Marketing / Gargle Admin); do not invent doctor authorship, review, or bios. This overrides the attribution-before-publication gate for this historical restoration only. Other migration, indexing, legal, tracking and form gates remain unchanged.
 
 - The original request was homepage-first, followed by Bryan's request to finish the remaining pages. His November 2 question about whether the site began as one page was a question, not a new scope restriction. Do not treat it as authorization to omit migration work or as confirmation of a one-page-only engagement.
 - Existing Astro/Cloudflare project for Dr. Laura Russell in Wauwatosa, WI. Preserve the approved October homepage, green/cream palette, Instrument Serif/DM Sans, real logo/photos, and edited waiting-room images.
-- This is a staged core-page build, not a completed production migration. Do not change DNS, remove noindex, retire staging, enable ads, or declare launch complete while the migration, ownership, form and tracking gates remain open.
+- The expanded site is live, but the remaining legal, ownership, form and tracking items are still open. Do not change DNS, remove preview/utility noindex, retire staging, enable ads, or declare the full launch checklist complete without corresponding authorization. Production indexing is authorized by the November 3 exception above.
 - The selected design direction has already been approved. Routine readiness fixes operate in Deliver; do not restart Discover/Define or introduce alternate homepage designs unless Bryan explicitly asks.
 - Source facts only. No invented credentials, memberships, reviews, insurance acceptance, office locations, phone ownership, successful form submissions, or analytics results.
 - Preserve old paths and protected content. Complete the URL/authority manifest and required sign-off before cutover. Do not replace unbuilt pages with blanket homepage redirects.

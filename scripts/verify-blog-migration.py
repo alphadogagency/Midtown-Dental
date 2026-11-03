@@ -34,7 +34,7 @@ for path in paths:
  if not f.exists():errors.append((path,'missing route'));continue
  d=Document();d.feed(f.read_text());documents[path]=d
  if d.h1!=1:errors.append((path,'H1 count',d.h1))
- if d.robots!=['noindex, nofollow']:errors.append((path,'index protection changed'))
+ if any('noindex' in (r or '').lower() or 'none' in (r or '').lower().split(',') for r in d.robots):errors.append((path,'production article/archive blocked from indexing'))
  for img in d.images:
   if img.startswith('/') and not (ROOT/'dist'/img.lstrip('/')).is_file():errors.append((path,'missing image',img))
  for href in d.links:
