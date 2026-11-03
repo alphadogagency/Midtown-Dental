@@ -21,7 +21,7 @@
       "source": "src/assets/images/office-lounge-updated.png",
       "output": "src/assets/images/office-lounge-clean.png",
       "method": "Built-in image_gen precise-object-edit; prior bookshelf/play-table removal preserved.",
-      "review": "Salt container removed; framing, room fixtures, empty shelf, ottomans and window signage visually compared with the source. Awaiting human review in the refinement preview."
+      "review": "Salt container removed; framing, room fixtures, empty shelf, ottomans and window signage visually compared with the source. Bryan reviewed the refinement preview and authorized publication on November 3, 2026."
     }
   ]
 }

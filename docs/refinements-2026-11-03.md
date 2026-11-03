@@ -1,6 +1,6 @@
 # November 3 photo and dental-technology refinements
 
-Status: prepared for human review before production publication. This is a scoped update to the approved site, not a new homepage approval cycle.
+Status: Bryan reviewed the refinement preview and explicitly authorized committing and pushing these updates to main for deployment on November 3. This approval covers the scoped photo and technology update; it does not establish clinical review of historical blogs or close unrelated launch follow-ups.
 
 ## Images
 
@@ -12,7 +12,7 @@ Image edit prompt (built-in ImageGen, 2026-11-03):
 
 > Use case: precise-object-edit. Edit the supplied existing dental-office photograph, not a new composition. Remove ONLY the white rectangular salt container/bucket standing on the tiled hearth at the lower-right corner of the fireplace (approximately x=414–522, y=719–893 in the 1536×1024 input). Reconstruct the small area of tan fireplace tile and hearth behind/under that container using the adjacent tile, matching grout lines, perspective, texture, daylight and shadows. There must be no replacement object. Preserve every other part of this photograph as closely as possible: camera angle, exact framing and landscape aspect ratio, fireplace, television and its displayed image, tan wall, framed smile poster, EMPTY wooden shelf, black ottomans, striped carpet, reception window, wood trim, logos/signage and existing text. The books and children's train/play table have already been removed; they must stay absent. Do not redesign, renovate or beautify the room, move furniture, change colors or exposure, add anything, crop the photograph, or alter the window lettering. Return one edited photograph without labels, border or before/after comparison.
 
-## Technology copy — human review requested
+## Technology copy — publication approved by Bryan
 
 The existing `/services/dental-technology/` route, metadata and five original section anchors are retained. The page now explains the five technologies named by the client: NOMAD, TRIOS, SprintRay, Pearl and CEREC. Existing cone beam CT, Yomi and laser-dentistry topics remain. Broad inherited promises of painless procedures, superior outcomes and universal faster treatment were replaced with bounded descriptions. No equipment model, procedure timing, material, exact practice printing indication or clinical-review credit was invented.
 
