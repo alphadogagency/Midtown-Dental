@@ -106,7 +106,7 @@ Bryan authorized fixing the remaining old URLs and both blog issues while deferr
 
 Bryan explicitly authorized enabling search indexing for the live site and submitting `https://www.midtowndentalcare.org/sitemap.xml` in the verified URL-prefix Search Console property. This is a scoped exception to the earlier production indexing hold; it is not completion of all client or launch gates.
 
-- Production content HTML has no blocking robots meta tag; robots.txt permits crawling and references the 141-URL canonical sitemap. Redirect destinations remain unchanged.
+- Production content HTML has no blocking robots meta tag; robots.txt permits crawling and references the 141-URL canonical sitemap. Existing content redirect destinations remain unchanged. Five old WordPress XML sitemap addresses redirect to `/sitemap.xml`, preserving Google’s saved sitemap locations (438 exact redirect rules total).
 - The form completion and 404 documents retain noindex. Both the primary Pages preview and branch/deployment preview hosts receive `X-Robots-Tag: noindex, nofollow` via hostname-specific Cloudflare rules. Their robots.txt permits crawling so search engines can see the noindex headers.
 - The Google verification tag stays in the homepage head. Social preview images use the production origin.
 - Deployment checks and the Search Console submission/inspection results are recorded privately in `outputs/launch-2026-11-03/indexing/`. Sitemap submission and indexing requests are not proof that Google has indexed the new build.

@@ -4,6 +4,13 @@
 /services/dental-implant-services/ /services/dental-implants-milwaukee/ 301
 /services/childhood/ /services/pediatric-dentist-milwaukee/ 301
 
+# WordPress sitemap addresses retained for Google and existing submissions.
+/sitemap_index.xml /sitemap.xml 301
+/page-sitemap.xml /sitemap.xml 301
+/post-sitemap.xml /sitemap.xml 301
+/category-sitemap.xml /sitemap.xml 301
+/post_tag-sitemap.xml /sitemap.xml 301
+
 # Retired advertising paths: send visitors to the matching existing service.
 /ppc-cosmetic-dentist-in-wauwatosa/ /services/cosmetic-dentistry-milwaukee/ 301
 /ppc-cosmetic-dentist-in-wauwatosa /services/cosmetic-dentistry-milwaukee/ 301
