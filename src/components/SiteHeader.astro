@@ -1,45 +1,151 @@
 ---
+import services from '../data/service-catalog.json';
 const { home = false } = Astro.props;
+const serviceGroups = [
+  { title: 'General & family care', slugs: ['preventative-dentistry', 'teeth-cleanings-milwaukee', 'pediatric-dentist-milwaukee', 'periodontal-therapy', 'dental-nitrous-oxide-milwaukee', 'oral-appliances', 'obstructive-sleep-apnea-treatment-milwaukee', 'dental-technology'] },
+  { title: 'Cosmetic dentistry', slugs: ['cosmetic-dentistry-milwaukee', 'clear-aligner-therapy-milwaukee', 'candid-pro-clear-aligners', 'no-prep-veneers-in-wauwatosa', 'teeth-whitening'] },
+  { title: 'Crowns & restorative care', slugs: ['restorative-dentistry', 'cerec-crown-milwaukee', 'same-day-dentistry', 'composite-fillings-milwaukee', 'dental-bridges', 'full-mouth-reconstruction-milwaukee'] },
+  { title: 'Dental implants', slugs: ['dental-implants-milwaukee', 'single-tooth-dental-implants-in-wauwatosa', 'implant-supported-bridges', 'implant-supported-dentures', 'dental-implants-milwaukee/yomi', 'dental-implant-faqs'] },
+].map(group => ({ title: group.title, links: group.slugs.map(slug => services.find(service => service.href === `/services/${slug}/`)!) }));
+const practiceLinks = [
+  { name: 'About our practice', href: '/team/about/' },
+  { name: 'Our office', href: '/office/' },
+  { name: 'Why choose us', href: '/what-sets-us-apart/' },
+  { name: 'Smile gallery', href: '/before-after/' },
+  { name: 'Patient reviews', href: '/reviews/' },
+];
+const teamLinks = [
+  { name: 'Meet the whole team', href: '/team/' },
+  { name: 'Dr. Laura Russell', href: '/team/dr-laura-russell/' },
+  { name: 'Dr. AnnMarie Hoyme', href: '/team/dr-annmarie-hoyme/' },
+  { name: 'Dr. Karla Schmidt', href: '/team/dr-karla-schmidt/' },
+  { name: 'Dr. Crego', href: '/team/dr-crego/' },
+  { name: 'LaRita Smith (Rita)', href: '/team/rita/' },
+  { name: 'Cathy Harmatys', href: '/team/cathy-harmatys/' },
+];
+const patientLinks = [
+  { name: 'Your first appointment', href: '/first-appointment/' },
+  { name: 'Financing & payment options', href: '/payment/' },
+  { name: 'Cherry financing', href: '/cherry-financing/' },
+  { name: 'Membership club', href: '/membership/' },
+  { name: 'Request an appointment', href: '/appointment/' },
+];
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => (href.replace(/\/$/, '') || '/') === currentPath;
 ---
-    <div class="utility-bar">
-      <a href="https://maps.app.goo.gl/zaHUajak3e7CWQKe8" target="_blank" rel="noopener noreferrer">8726 W. North Ave · Wauwatosa, WI</a>
-      <div><a href="https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main" target="_blank" rel="noopener noreferrer">Patient forms</a><span aria-hidden="true">/</span><a href="https://midtowndentalcaresc.secure.lq-pay.net/" target="_blank" rel="noopener noreferrer">Pay online</a></div>
-    </div>
-    <header class="site-header">
-      <a href="/" class="brand" aria-label="MidTown Dental Care home"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /></a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href={home ? "#our-practice" : "/team/about/"}>Our practice</a><a href={home ? "#care" : "/dental-services/"}>Our care</a><a href={home ? "#team" : "/team/"}>Meet the team</a><a href={home ? "#visit" : "/first-appointment/"}>Your first visit</a>
-      </nav>
-      <a class="button header-cta" href={home ? "#appointment" : "/contact/"}>Let’s get you smiling</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation"><span></span><span></span></button>
-      <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href={home ? "#our-practice" : "/team/about/"}>Our practice</a><a href={home ? "#care" : "/dental-services/"}>Our care</a><a href={home ? "#team" : "/team/"}>Meet the team</a><a href={home ? "#visit" : "/first-appointment/"}>Your first visit</a><a href={home ? "#appointment" : "/contact/"}>Request an appointment</a>
-      </nav>
-    </header>
-    <script>
-      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
-      const menu = document.querySelector<HTMLElement>('#mobile-menu');
-      function closeMenu() {
-        if (!toggle || !menu) return;
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation');
-        menu.hidden = true;
-      }
-      toggle?.addEventListener('click', () => {
-        if (!menu) return;
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        toggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-        menu.hidden = expanded;
-      });
-      menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
-          closeMenu(); toggle.focus();
-        }
-      });
-      document.addEventListener('click', event => {
-        if (event.target instanceof Node && !menu?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
-      });
-      matchMedia('(min-width: 851px)').addEventListener('change', closeMenu);
-    </script>
+<div class="utility-bar">
+  <a href="https://maps.app.goo.gl/zaHUajak3e7CWQKe8" target="_blank" rel="noopener noreferrer">8726 W. North Ave · Wauwatosa, WI</a>
+  <div><a href="https://app.operadds.com/Forms/SetFormsGroupGen?cFgId=492ea1da-d86b-4b86-bd01-0552a75dae51#main" target="_blank" rel="noopener noreferrer">Patient forms</a><span aria-hidden="true">/</span><a href="https://midtowndentalcaresc.secure.lq-pay.net/" target="_blank" rel="noopener noreferrer">Pay online</a></div>
+</div>
+<header class="site-header">
+  <a href="/" class="brand" aria-label="MidTown Dental Care home"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation"><span></span><span></span></button>
+  <nav id="site-navigation" class="site-navigation" aria-label="Main navigation">
+    <details class="nav-group">
+      <summary>Our practice</summary>
+      <div class="nav-panel practice-panel">
+        <div class="nav-column"><p class="nav-heading">Get to know us</p><ul>{practiceLinks.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.name}</a></li>)}</ul></div>
+        <div class="nav-column"><p class="nav-heading">Our team</p><ul>{teamLinks.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.name}</a></li>)}</ul></div>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Dental services</summary>
+      <div class="nav-panel services-panel">
+        <a class="nav-overview" href="/dental-services/">View all dental services <span aria-hidden="true">→</span></a>
+        <div class="service-columns">{serviceGroups.map(group => <div class="nav-column"><p class="nav-heading">{group.title}</p><ul>{group.links.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.name}</a></li>)}</ul></div>)}</div>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Patient info</summary>
+      <div class="nav-panel patient-panel"><ul>{patientLinks.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.name}</a></li>)}</ul></div>
+    </details>
+    <a class="nav-contact" href="/contact/" aria-current={isCurrent('/contact/') ? 'page' : undefined}>Contact</a>
+    <a class="button mobile-appointment" href="/appointment/">Request an appointment</a>
+  </nav>
+  <a class="button header-cta" href={home ? '#appointment' : '/contact/'}>Let’s get you smiling</a>
+</header>
+<style>
+  .site-navigation{display:flex;align-items:center;gap:25px;font-size:14px}
+  .nav-group summary{display:flex;align-items:center;gap:9px;min-height:44px;cursor:pointer;list-style:none;white-space:nowrap}
+  .nav-group summary::-webkit-details-marker{display:none}
+  .nav-group summary::after{content:'';width:6px;height:6px;border-right:1px solid;border-bottom:1px solid;transform:translateY(-2px) rotate(45deg)}
+  .nav-group[open] summary::after{transform:translateY(2px) rotate(225deg)}
+  .nav-group[open] summary,.nav-contact:hover{color:var(--green-light)}
+  .nav-contact{display:flex;align-items:center;min-height:44px}
+  .nav-panel{position:absolute;top:100%;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:28px;max-height:calc(100dvh - 180px);overflow-y:auto;overscroll-behavior:contain}
+  .practice-panel{display:grid;grid-template-columns:1fr 1fr;gap:30px;width:560px;left:50%;transform:translateX(-50%)}
+  .services-panel{width:min(1120px,90%);left:5%}
+  .patient-panel{width:310px;right:15%}
+  .nav-heading{font-size:13px;font-weight:600;line-height:1.5;margin-bottom:12px}
+  .nav-panel ul{list-style:none;margin:0;padding:0}
+  .nav-panel li+li{margin-top:2px}
+  .nav-panel a{display:block;padding:8px 0;font-size:13px;line-height:1.5;text-decoration-thickness:1px;text-underline-offset:4px}
+  .nav-panel a:hover,.nav-panel a[aria-current=page],.nav-contact[aria-current=page]{text-decoration:underline}
+  .nav-overview{border-bottom:1px solid var(--line);margin-bottom:22px;padding:0 0 17px!important;font-weight:500}
+  .nav-overview span{margin-left:10px}
+  .service-columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+  .mobile-appointment{display:none}
+  @media(max-width:1100px){.site-navigation{gap:18px}}
+  @media(max-width:1050px){
+    .header-cta{display:none}
+    .menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:7px;border:0;background:transparent;width:44px;height:44px;padding:10px}
+    .menu-toggle span{width:24px;height:1px;background:var(--green)}
+    .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+    .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+    .site-navigation{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);padding:12px 6% 28px;border-bottom:1px solid var(--line);max-height:calc(100dvh - 220px);overflow-y:auto;overscroll-behavior:contain}
+    .site-navigation[data-open]{display:block}
+    .nav-group{border-bottom:1px solid var(--line)}
+    .nav-group summary{justify-content:space-between;font-size:17px;min-height:56px}
+    .nav-panel{position:static;border:0;transform:none;width:auto;max-height:none;overflow:visible;padding:10px 0 20px}
+    .practice-panel,.service-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .nav-panel a{padding:11px 0;font-size:14px}
+    .nav-heading{margin:8px 0;font-size:14px}
+    .nav-contact{min-height:56px;font-size:17px}
+    .mobile-appointment{display:flex;margin-top:10px}
+  }
+  @media(max-width:600px){.practice-panel,.service-columns{grid-template-columns:1fr;gap:18px}.site-navigation{max-height:calc(100dvh - 220px)}}
+</style>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#site-navigation');
+  const groups = Array.from(menu?.querySelectorAll<HTMLDetailsElement>('.nav-group') ?? []);
+  function closeGroups(except?: HTMLDetailsElement) {
+    groups.forEach(group => { if (group !== except) group.open = false; });
+  }
+  function closeMenu() {
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Open navigation');
+    menu?.removeAttribute('data-open');
+    closeGroups();
+  }
+  toggle?.addEventListener('click', () => {
+    const opening = toggle.getAttribute('aria-expanded') !== 'true';
+    closeMenu();
+    if (opening) {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close navigation');
+      menu?.setAttribute('data-open', '');
+    }
+  });
+  groups.forEach(group => {
+    group.addEventListener('toggle', () => { if (group.open) closeGroups(group); });
+    group.addEventListener('focusout', event => {
+      if (event.relatedTarget instanceof Node && !group.contains(event.relatedTarget)) group.open = false;
+    });
+  });
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const openGroup = groups.find(group => group.open);
+    if (openGroup) {
+      openGroup.open = false;
+      openGroup.querySelector('summary')?.focus();
+    } else if (toggle?.getAttribute('aria-expanded') === 'true') {
+      closeMenu(); toggle.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (event.target instanceof Node && !menu?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
+  });
+  matchMedia('(min-width: 1051px)').addEventListener('change', closeMenu);
+</script>

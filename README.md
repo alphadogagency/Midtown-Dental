@@ -2,6 +2,14 @@
 
 Website redesign for Dr. Laura Russell’s Wauwatosa practice. Built in Astro with static output for Cloudflare. All photos and the logo are served locally; fonts are bundled locally.
 
+The original request was homepage-first; Bryan later requested completion of the remaining pages. His November 2 question about the initial one-page build did not establish a one-page-only engagement or waive remaining migration work. Bryan subsequently reported that the website appeared to be working after the nameserver repair; the timed diagnostic results below remain historical checks.
+
+## Navigation
+
+The November 2 navigation update replaces the homepage's section-only menu with shared dropdowns for Our practice, Dental services, and Patient info, plus a direct Contact link. The saved WordPress header provided the navigation reference. All 25 built services appear in four groups; practice/team profiles and patient resources are directly accessible. Footer navigation now opens the corresponding pages on the homepage too. Unmigrated blog/legal destinations were not added to the header.
+
+Verification: production build passed; all 25 catalog services are included and all 45 header links resolve to built pages. Browser checks covered desktop, 1051px breakpoint, 390px and 320px mobile widths, service/patient link navigation, scrollable mobile menus, and Escape closing with focus return. No horizontal overflow was found at the checked widths. Evidence is in ignored `outputs/launch-2026-11-02/navigation/`. This is a navigation improvement, not completion of the remaining migration or launch checklist.
+
 ## Development
 
 Requires Node 22.22 or later.
@@ -21,7 +29,9 @@ For Cloudflare Pages, set the build command to `npm run build` and the output di
 
 This remains a **staging preview**, not a complete production migration. The approved homepage and 48 other content routes are built, plus a form completion page and real 404. The expansion includes all 25 services in the directory, four dentist bios, two staff profiles, membership, financing, the real before/after gallery, accessibility information, and patient resources. Existing paths are preserved. Historical blogs/archives and legal-policy content remain open; the footer privacy link still reaches the old site.
 
-On November 2, Bryan connected the apex production domain to Pages and then explicitly authorized a limited repair of the failing `www` hostname. The Pages wizard replaced four old `www` A/AAAA entries with `CNAME www → midtown-dental.pages.dev` and associated that hostname with this project. Both domain variants now serve this build over HTTPS. This routing repair does not complete the production migration; noindex and all remaining launch gates remain in place. The November 2 inventory contains 156 sitemap URLs plus 218 additional discovered URLs; the remaining content, authority data, and exact migration behavior must be resolved before cutover. Private source snapshots, the URL manifest, verification, and the launch handoff are kept in the ignored `outputs/launch-2026-11-02/` directory.
+On November 2, Bryan connected the apex production domain to Pages and then explicitly authorized a limited repair of the failing `www` hostname. The Pages wizard replaced four old `www` A/AAAA entries with `CNAME www → midtown-dental.pages.dev` and associated that hostname with this project. Both domain variants served this build over HTTPS after that repair. This routing repair does not complete the production migration; noindex and all remaining launch gates remain in place. The November 2 inventory contains 156 sitemap URLs plus 218 additional discovered URLs; the remaining content, authority data, and exact migration behavior must be resolved before cutover. Private source snapshots, the URL manifest, verification, and the launch handoff are kept in the ignored `outputs/launch-2026-11-02/` directory.
+
+A second outage on November 2 followed delegation to GoDaddy's default nameservers. With Bryan's explicit approval, GoDaddy forwarding was removed and the custom nameservers restored to `emma.ns.cloudflare.com` and `yadiel.ns.cloudflare.com`. The existing `.org` DMARC policy was preserved in Cloudflare; `.net` email settings were not changed. Cloudflare's active `MidTown apex to www` Single Redirect sends the apex hostname to HTTPS www with the original path and query string (301). Direct Cloudflare tests passed with normal TLS verification. At 23:47 UTC, the `.org` registry and public resolvers still returned GoDaddy's nameservers, and normal public HTTPS requests still failed; public recovery remains unverified pending delegation updates. Evidence and the prior zone backup are in ignored `outputs/launch-2026-11-02/nameserver-repair/`. Do not recreate GoDaddy forwarding for this domain.
 
 The static build includes a real `404.html` and a 49-URL XML sitemap (the form completion and 404 pages are excluded). `public/_redirects` repairs three broken legacy aliases to existing core routes; it is **not** a complete migration redirect map. Astro preview does not emulate Cloudflare redirect rules, so validate redirects on Pages.
 

@@ -2,6 +2,7 @@
 
 ## Current scope and fixed guardrails
 
+- The original request was homepage-first, followed by Bryan's request to finish the remaining pages. His November 2 question about whether the site began as one page was a question, not a new scope restriction. Do not treat it as authorization to omit migration work or as confirmation of a one-page-only engagement.
 - Existing Astro/Cloudflare project for Dr. Laura Russell in Wauwatosa, WI. Preserve the approved October homepage, green/cream palette, Instrument Serif/DM Sans, real logo/photos, and edited waiting-room images.
 - This is a staged core-page build, not a completed production migration. Do not change DNS, remove noindex, retire staging, enable ads, or declare launch complete while the migration, ownership, form and tracking gates remain open.
 - The selected design direction has already been approved. Routine readiness fixes operate in Deliver; do not restart Discover/Define or introduce alternate homepage designs unless Bryan explicitly asks.
