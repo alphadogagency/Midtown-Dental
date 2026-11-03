@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { practiceImages } from '../data/images';
 import receptionPhoto from '../assets/images/office-reception-updated.png';
-import loungePhoto from '../assets/images/office-lounge-updated.png';
+import familyPhoto from '../assets/images/family-at-home.jpg';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AppointmentForm from '../components/AppointmentForm.astro';
 const services = [
@@ -63,7 +63,7 @@ const googleReviews = 'https://www.google.com/maps/place/MidTown+Dental+Care/@43
       </section>
 
       <section class="comfort-section" aria-labelledby="comfort-title">
-        <div class="comfort-photo"><Image src={loungePhoto} width={1200} height={800} widths={[480, 800, 1200]} sizes="(max-width: 600px) 100vw, 55vw" format="webp" quality={85} alt="The fireplace and reception window in the MidTown Dental Care waiting room" loading="lazy" /><span class="photo-label">MAKE YOURSELF AT HOME.</span></div>
+        <div class="comfort-photo"><Image src={familyPhoto} width={1000} height={667} widths={[480, 800, 1000]} sizes="(max-width: 600px) 100vw, 55vw" format="webp" quality={85} alt="A young girl kisses a smiling woman on the cheek" loading="lazy" /></div>
         <div class="comfort-copy"><p class="eyebrow">A different kind of dental visit</p><h2 id="comfort-title">Come as you are.<br /><em>Feel at ease.</em></h2><p>A little nervous? It’s okay to tell us. We’ll take the time to answer your questions and help make your visit feel more comfortable.</p><div class="comfort-points"><p><span>01</span> A welcoming space for every generation</p><p><span>02</span> Digital impressions and same-day crown technology</p><p><span>03</span> Comfort options, including nitrous oxide</p></div><a class="text-link" href="/office/">Take a look around our office</a></div>
       </section>
 

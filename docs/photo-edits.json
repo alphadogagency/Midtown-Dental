@@ -13,5 +13,15 @@
       "output": "src/assets/images/office-lounge-updated.png",
       "prompt": "Use case: precise-object-edit. Asset type: existing dental office website photograph. The attached image is the edit target, not a style reference. This closer waiting-room photo includes fireplace on the left, books on a wood shelf in the middle, black ottomans beneath it, interior reception window on the upper right, and a large children's train/play table in the foreground on the right.\nPrimary request: remove ONLY (1) the books from the wood shelf and (2) the entire children's train/play table including the trains, toy landscape and loose toys underneath the table. The client has physically removed these items since this photograph was taken. Leave the existing wood shelf empty and extend the immediately surrounding existing wall/carpet behind the removed objects, matching perspective, carpet stripes, natural lighting and shadows. No replacement furniture or decorations.\nInvariants: preserve the original full composition, original 800:533 aspect ratio, viewpoint, framing, furniture, chairs, ottomans, fireplace, window frames, TV, ceiling, floor, wall art, doorways, reception counter, plants and any people. Preserve all existing signs/logos/text exactly as in the input. Do not redesign, renovate or beautify the office. Do not change any person's appearance. Do not change color grading or lighting. Changes should be limited strictly to the obsolete books and train/play table and the small areas they occluded. Return one edited photograph, no labels, no border, no before/after layout."
     }
+  ],
+  "followup_edits": [
+    {
+      "date": "2026-11-03",
+      "reason": "Client requested removal of the salt container by the fireplace.",
+      "source": "src/assets/images/office-lounge-updated.png",
+      "output": "src/assets/images/office-lounge-clean.png",
+      "method": "Built-in image_gen precise-object-edit; prior bookshelf/play-table removal preserved.",
+      "review": "Salt container removed; framing, room fixtures, empty shelf, ottomans and window signage visually compared with the source. Awaiting human review in the refinement preview."
+    }
   ]
 }
