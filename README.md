@@ -35,6 +35,10 @@ A second outage on November 2 followed delegation to GoDaddy's default nameserve
 
 The static build includes 150 HTML pages, a real `404.html`, and a 141-URL XML sitemap (form completion, 404, redirects, and archive pagination are excluded from the sitemap). `public/_redirects` contains the service/landing/confirmation repairs and exact mappings for 200 duplicated WordPress numbered article URLs. Both slash variants are handled for the new mappings (433 rules total). Real archive pagination remains intact. Authority/SEO sign-off remains separate. Astro preview does not emulate Cloudflare redirect rules, so validate redirects on Pages.
 
+## Search Console verification
+
+On November 3, Bryan requested HTML-tag verification for the URL-prefix property `https://www.midtowndentalcare.org/`. The supplied Google verification tag is rendered in the homepage's `<head>` by `src/layouts/SiteLayout.astro`; keep it after verification so ownership can be rechecked. This verifies only the specified URL prefix, not a DNS Domain property. Verification does not remove the existing crawl/indexing protections or submit a sitemap. Client ownership/delegation and the other launch gates remain separate follow-up items.
+
 ## Appointment form
 
 The homepage, `/contact/`, and `/appointment/` embed the real Jotform [263055223419049](https://form.jotform.com/263055223419049), created in the existing HIPAA Jotform workspace. Bryan confirmed `frontdesk@midtowndentalcare.net` as the receiving inbox on November 2. All contact fields remain PHI-protected; notification emails contain no patient answers and require authorized Jotform access to review the submission. Practice access to those submissions still needs confirmation.
