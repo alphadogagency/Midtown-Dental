@@ -11,11 +11,20 @@ import { practiceImages } from '../data/images';
 import receptionPhoto from '../assets/images/office-reception-updated.png';
 import loungePhoto from '../assets/images/office-lounge-updated.png';
 import '../styles/interior.css';
+import BlogArticle from '../components/BlogArticle.astro';
+import BlogArchive from '../components/BlogArchive.astro';
+import posts from '../data/blog-posts.json';
+import archives from '../data/blog-archives.json';
 
 export function getStaticPaths() {
-  return pages.map(page => ({ params: { path: page.path }, props: { page } }));
+  return [
+    ...pages.map(page => ({ params: { path: page.path }, props: { page } })),
+    ...posts.map(post => ({ params: { path: post.path }, props: { post } })),
+    ...archives.flatMap(archive => Array.from({ length: Math.ceil(archive.posts.length / 10) }, (_, i) => ({ params: { path: `${archive.path}${i ? `/page/${i + 1}` : ''}` }, props: { archive, pageNumber: i + 1 } }))),
+  ];
 }
-const { page } = Astro.props;
+const { post, archive, pageNumber } = Astro.props;
+const page = Astro.props.page ?? pages[0];
 const doctors = pages.filter(item => item.kind === 'doctor');
 const services = pages.filter(item => item.kind === 'service');
 const isDoctor = page.kind === 'doctor';
@@ -48,7 +57,7 @@ const introductions: Record<string, string> = {
   contact: 'A question, a first visit, or your next appointment. Send us a request—we’ll help you take the next step.',
 };
 ---
-<SiteLayout title={page.title} description={page.description}>
+{post ? <BlogArticle post={post} /> : archive ? <BlogArchive archive={archive} pageNumber={pageNumber} /> : <SiteLayout title={page.title} description={page.description}>
   <main id="main" class="interior-page">
     <section class:list={['interior-hero', 'section-wrap', { 'doctor-hero': isProfile, 'contact-hero': isContact }]}>
       <div class="interior-hero-copy">
@@ -94,4 +103,4 @@ const introductions: Record<string, string> = {
 
     {!isContact && <section class="interior-close"><div><p class="eyebrow">Your neighborhood dental team</p><h2>A question?<br /><em>Let’s talk.</em></h2></div><div><p>We’ll listen, explain your options, and help you take the next step.</p><a class="button button-light" href="/contact/">Request an appointment</a><a class="closing-phone" href={`tel:${practice.telephone}`}>{practice.phone}</a></div></section>}
   </main>
-</SiteLayout>
+</SiteLayout>}

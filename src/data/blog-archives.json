@@ -1,0 +1,488 @@
+[
+  {
+    "path": "blog",
+    "title": "Patient Education",
+    "type": "all",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal",
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit",
+      "considering-dental-implants-in-wauwatosa",
+      "discover-a-dentist-in-wauwatosa-families-can-count-on",
+      "help-your-child-shine-give-kids-a-smile-in-wauwatosa",
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle",
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for",
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa",
+      "same-day-crowns-in-wauwatosa-who-wore-it-better",
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa",
+      "expert-dental-care-from-your-dentist-in-wauwatosa",
+      "innovative-laser-treatment-for-periodontal-disease",
+      "our-bridge-to-brighter-partnership-shaping-the-future-with-smiles",
+      "the-benefits-of-personalized-dental-care",
+      "midtown-dental-cares-mission-in-guatemala",
+      "from-consultation-to-recovery-understanding-dental-implant-surgery",
+      "the-path-to-a-perfect-smile-comparing-teeth-alignment-options",
+      "the-role-of-dental-fillings-in-preventing-tooth-decay-progression",
+      "what-to-expect-during-your-annual-dental-checkups",
+      "how-technology-is-improving-cosmetic-dentist-services",
+      "straighten-your-teeth-on-your-terms-exploring-clear-teeth-aligners",
+      "the-benefits-of-smile-aligners-a-subtle-path-to-a-stunning-smile",
+      "the-future-of-dentistry-advancements-in-dental-implant-technology",
+      "revolutionizing-dentistry-exploring-the-benefits-of-dental-3d-printing",
+      "what-to-know-before-your-dental-implant-procedure",
+      "what-are-some-benefits-of-dental-implants",
+      "the-importance-of-a-regular-dental-checkup-ensuring-oral-health",
+      "5-pediatric-dental-care-essentials-every-parent-should-know",
+      "how-to-make-your-dentist-teeth-cleaning-last",
+      "4-ways-cosmetic-dentistry-services-can-improve-your-smile",
+      "what-to-look-for-in-a-family-dental-care-provider",
+      "why-choose-clear-aligner-therapy-to-perfect-your-smile",
+      "how-implant-overdenture-can-improve-your-quality-of-life",
+      "6-important-things-to-know-about-dental-care-for-kids",
+      "10-steps-for-deep-cleaning-teeth",
+      "send-kiddos-back-to-school-with-tooth-friendly-snacks",
+      "give-kids-a-smile-day-2018",
+      "make-this-new-year-about-your-smile",
+      "five-oral-health-questions",
+      "five-things-you-can-do-to-help-your-teeth-and-gums-this-summer",
+      "why-do-i-need-x-rays",
+      "give-kids-a-smile",
+      "were-supporting-tosa-for-tots",
+      "our-halloween-candy-deal",
+      "dr-cregos-digest-september-2015",
+      "dr-cregos-digest-august-2015",
+      "check-it-out",
+      "welcome",
+      "cerec-technology-available-here"
+    ]
+  },
+  {
+    "path": "category/advanced-dental-technology",
+    "title": "Advanced Dental Technology",
+    "type": "category",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "category/best-cosmetic-dentist-in-wauwatosa",
+    "title": "Best Cosmetic Dentist in Wauwatosa",
+    "type": "category",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "category/blog",
+    "title": "Blog",
+    "type": "category",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa",
+      "expert-dental-care-from-your-dentist-in-wauwatosa",
+      "innovative-laser-treatment-for-periodontal-disease",
+      "our-bridge-to-brighter-partnership-shaping-the-future-with-smiles",
+      "the-benefits-of-personalized-dental-care",
+      "midtown-dental-cares-mission-in-guatemala",
+      "from-consultation-to-recovery-understanding-dental-implant-surgery",
+      "the-path-to-a-perfect-smile-comparing-teeth-alignment-options",
+      "the-role-of-dental-fillings-in-preventing-tooth-decay-progression",
+      "what-to-expect-during-your-annual-dental-checkups",
+      "how-technology-is-improving-cosmetic-dentist-services",
+      "straighten-your-teeth-on-your-terms-exploring-clear-teeth-aligners",
+      "the-benefits-of-smile-aligners-a-subtle-path-to-a-stunning-smile",
+      "the-future-of-dentistry-advancements-in-dental-implant-technology",
+      "revolutionizing-dentistry-exploring-the-benefits-of-dental-3d-printing",
+      "what-to-know-before-your-dental-implant-procedure",
+      "what-are-some-benefits-of-dental-implants",
+      "the-importance-of-a-regular-dental-checkup-ensuring-oral-health",
+      "5-pediatric-dental-care-essentials-every-parent-should-know",
+      "how-to-make-your-dentist-teeth-cleaning-last",
+      "4-ways-cosmetic-dentistry-services-can-improve-your-smile",
+      "what-to-look-for-in-a-family-dental-care-provider",
+      "why-choose-clear-aligner-therapy-to-perfect-your-smile",
+      "how-implant-overdenture-can-improve-your-quality-of-life",
+      "6-important-things-to-know-about-dental-care-for-kids",
+      "10-steps-for-deep-cleaning-teeth"
+    ]
+  },
+  {
+    "path": "category/clear-aligners-wauwatosa",
+    "title": "Clear Aligners Wauwatosa",
+    "type": "category",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal",
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle"
+    ]
+  },
+  {
+    "path": "category/comprehensive-dental-services",
+    "title": "Comprehensive Dental Services",
+    "type": "category",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  },
+  {
+    "path": "category/cosmetic-dentist-in-wauwatosa",
+    "title": "Cosmetic Dentist in Wauwatosa",
+    "type": "category",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "category/cosmetic-dentist-near-me-in-wauwatosa",
+    "title": "Cosmetic Dentist Near Me in Wauwatosa",
+    "type": "category",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "category/cosmetic-dentistry",
+    "title": "Cosmetic Dentistry",
+    "type": "category",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal",
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle"
+    ]
+  },
+  {
+    "path": "category/dental-crowns",
+    "title": "Dental Crowns",
+    "type": "category",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit"
+    ]
+  },
+  {
+    "path": "category/dental-implants",
+    "title": "Dental Implants",
+    "type": "category",
+    "posts": [
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/dental-implants-wauwatosa",
+    "title": "Dental Implants Wauwatosa",
+    "type": "category",
+    "posts": [
+      "considering-dental-implants-in-wauwatosa",
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/dentist-in-wauwatosa",
+    "title": "Dentist in Wauwatosa",
+    "type": "category",
+    "posts": [
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa",
+      "expert-dental-care-from-your-dentist-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/dentist-near-me",
+    "title": "Dentist Near Me",
+    "type": "category",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/dentist-near-me-in-wauwatosa",
+    "title": "Dentist Near Me in Wauwatosa",
+    "type": "category",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/family-cosmetic-dental-care",
+    "title": "Family & Cosmetic Dental Care",
+    "type": "category",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  },
+  {
+    "path": "category/general-dentistry",
+    "title": "General Dentistry",
+    "type": "category",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  },
+  {
+    "path": "category/implant-dentistry",
+    "title": "Implant Dentistry",
+    "type": "category",
+    "posts": [
+      "considering-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "category/maximize-your-dental-benefits-before-year-end",
+    "title": "Maximize Your Dental Benefits Before Year-End",
+    "type": "category",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now"
+    ]
+  },
+  {
+    "path": "category/restorative-dentistry",
+    "title": "Restorative Dentistry",
+    "type": "category",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal",
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit",
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "category/same-day-crowns-wauwatosa",
+    "title": "Same-Day Crowns Wauwatosa",
+    "type": "category",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "category/same-day-dentistry",
+    "title": "Same-Day Dentistry",
+    "type": "category",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit"
+    ]
+  },
+  {
+    "path": "category/smile-makeover",
+    "title": "Smile Makeover",
+    "type": "category",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal",
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle"
+    ]
+  },
+  {
+    "path": "category/uncategorized",
+    "title": "Uncategorized",
+    "type": "category",
+    "posts": [
+      "help-your-child-shine-give-kids-a-smile-in-wauwatosa",
+      "send-kiddos-back-to-school-with-tooth-friendly-snacks",
+      "give-kids-a-smile-day-2018",
+      "make-this-new-year-about-your-smile",
+      "five-oral-health-questions",
+      "five-things-you-can-do-to-help-your-teeth-and-gums-this-summer",
+      "why-do-i-need-x-rays",
+      "give-kids-a-smile",
+      "were-supporting-tosa-for-tots",
+      "our-halloween-candy-deal",
+      "dr-cregos-digest-september-2015",
+      "dr-cregos-digest-august-2015",
+      "check-it-out",
+      "welcome",
+      "cerec-technology-available-here"
+    ]
+  },
+  {
+    "path": "tag/best-cosmetic-dentist-in-wauwatosa",
+    "title": "Best Cosmetic Dentist in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "tag/best-dentist-in-wauwatosa",
+    "title": "Best Dentist in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  },
+  {
+    "path": "tag/cerec-crowns-wauwatosa",
+    "title": "CEREC crowns Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "tag/clear-aligners-in-wauwatosa-midtown",
+    "title": "Clear Aligners in Wauwatosa - Midtown",
+    "type": "tag",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal"
+    ]
+  },
+  {
+    "path": "tag/clear-aligners-wauwatosa",
+    "title": "Clear Aligners Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle"
+    ]
+  },
+  {
+    "path": "tag/cosmetic-and-restorative-dentistry",
+    "title": "Cosmetic and Restorative Dentistry",
+    "type": "tag",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal"
+    ]
+  },
+  {
+    "path": "tag/cosmetic-dentist-in-wauwatosa",
+    "title": "Cosmetic Dentist in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "tag/cosmetic-dentist-near-me-in-wauwatosa",
+    "title": "Cosmetic Dentist Near Me in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "how-to-find-the-best-cosmetic-dentist-in-wauwatosa-what-to-look-for"
+    ]
+  },
+  {
+    "path": "tag/dental-crowns-near-me",
+    "title": "Dental crowns near me",
+    "type": "tag",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "tag/dental-implants",
+    "title": "Dental Implants",
+    "type": "tag",
+    "posts": [
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dental-implants-wauwatosa",
+    "title": "Dental Implants Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "considering-dental-implants-in-wauwatosa",
+      "say-hello-to-a-stronger-smile-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dentist",
+    "title": "Dentist",
+    "type": "tag",
+    "posts": [
+      "expert-dental-care-from-your-dentist-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dentist-in-wauwatosa",
+    "title": "Dentist in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa",
+      "expert-dental-care-from-your-dentist-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dentist-near-me",
+    "title": "Dentist Near Me",
+    "type": "tag",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now",
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dentist-near-me-in-wauwatosa",
+    "title": "Dentist Near Me in Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "find-your-smile-sidekick-with-a-dentist-near-me-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/dentist-wauwatosa",
+    "title": "Dentist Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  },
+  {
+    "path": "tag/implant-dentist-wauwatosa",
+    "title": "Implant Dentist Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "considering-dental-implants-in-wauwatosa"
+    ]
+  },
+  {
+    "path": "tag/maximize-your-dental-benefits-before-year-end",
+    "title": "Maximize Your Dental Benefits Before Year-End",
+    "type": "tag",
+    "posts": [
+      "dont-lose-what-youve-paid-for-maximize-your-dental-benefits-now"
+    ]
+  },
+  {
+    "path": "tag/same-day-crowns",
+    "title": "same-day crowns",
+    "type": "tag",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit"
+    ]
+  },
+  {
+    "path": "tag/same-day-dental-crowns",
+    "title": "same-day dental crowns",
+    "type": "tag",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-fast-restorations-in-one-visit"
+    ]
+  },
+  {
+    "path": "tag/same-day-dental-restoration",
+    "title": "Same-day dental restoration",
+    "type": "tag",
+    "posts": [
+      "same-day-crowns-in-wauwatosa-who-wore-it-better"
+    ]
+  },
+  {
+    "path": "tag/smile-makeover-wauwatosa",
+    "title": "Smile Makeover Wauwatosa",
+    "type": "tag",
+    "posts": [
+      "clear-aligners-in-wauwatosa-a-straighter-smile-without-the-metal"
+    ]
+  },
+  {
+    "path": "tag/wauwatosa-clear-aligners",
+    "title": "Wauwatosa Clear Aligners",
+    "type": "tag",
+    "posts": [
+      "clear-aligners-in-wauwatosa-straighten-your-teeth-without-the-hassle"
+    ]
+  },
+  {
+    "path": "tag/wauwatosa-family-dentist",
+    "title": "Wauwatosa Family Dentist",
+    "type": "tag",
+    "posts": [
+      "discover-a-dentist-in-wauwatosa-families-can-count-on"
+    ]
+  }
+]

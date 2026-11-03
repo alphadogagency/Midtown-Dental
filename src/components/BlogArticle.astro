@@ -1,0 +1,55 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import posts from '../data/blog-posts.json';
+import archives from '../data/blog-archives.json';
+import { practice } from '../data/practice';
+import '../styles/interior.css';
+import '../styles/blog.css';
+const { post } = Astro.props;
+const date = (value: string) => new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(value));
+const categories = archives.filter(item => item.type === 'category' && item.posts.includes(post.path));
+const tags = archives.filter(item => item.type === 'tag' && item.posts.includes(post.path));
+const related = posts.filter(item => item.path !== post.path).sort((a,b) => Number(b.categories.some(c => post.categories.includes(c))) - Number(a.categories.some(c => post.categories.includes(c)))).slice(0,3);
+const position = posts.findIndex(item => item.path === post.path);
+const newer = posts[position - 1];
+const older = posts[position + 1];
+// Several old WordPress posts repeat their cover photo inside the article.
+const imageFamily = (src: string) => src.replace(/-\d+x\d+(?=\.webp$)/, '').replace('mark-crego-dds.webp', 'grego.webp');
+const inlineImages = [...post.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(match => imageFamily(match[1]));
+const showFeature = post.image && !inlineImages.includes(imageFamily(post.image.src));
+const schema = {
+  '@context': 'https://schema.org', '@type': 'BlogPosting',
+  headline: post.heading, description: post.description,
+  datePublished: post.published, dateModified: post.modified,
+  mainEntityOfPage: `${practice.site}/${post.path}/`,
+  creditText: `Original publishing credit: ${post.publishingCredit}`,
+  publisher: { '@type': 'Organization', name: practice.name },
+  ...(post.image ? { image: `${practice.site}${post.image.src}` } : {}),
+};
+---
+<SiteLayout title={post.title} description={post.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll('<','\\u003c')} />
+  <main id="main" class="blog-page">
+    <header class="blog-heading section-wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Patient Education</a></nav>
+      <p class="eyebrow">From the MidTown archive</p>
+      <h1>{post.heading}</h1>
+      <p class="blog-date">Originally published <time datetime={post.published}>{date(post.published)}</time></p>
+      {categories.length > 0 && <nav class="blog-topics" aria-label="Article topics">{categories.map(category => <a href={`/${category.path}/`}>{category.title}</a>)}</nav>}
+    </header>
+    <div class="blog-reading section-wrap">
+      <article>
+        {showFeature && <figure class="blog-feature"><img src={post.image.src} width={post.image.width} height={post.image.height} alt={post.image.alt} loading="eager" decoding="async" /></figure>}
+        <div class="reading-copy blog-copy" set:html={post.html} />
+        <div class="blog-credit"><p>Original publishing credit: <strong>{post.publishingCredit}</strong></p></div>
+        {tags.length > 0 && <nav class="blog-topics blog-tags" aria-label="Article tags">{tags.map(tag => <a href={`/${tag.path}/`}>{tag.title}</a>)}</nav>}
+        <nav class="blog-adjacent" aria-label="More from the archive">
+          {newer && <a href={`/${newer.path}/`}><span>Newer article</span>{newer.heading}</a>}
+          {older && <a href={`/${older.path}/`}><span>Older article</span>{older.heading}</a>}
+        </nav>
+      </article>
+      <aside class="blog-aside"><h2>More about your care</h2><nav aria-label="Explore dental care"><a href="/dental-services/">Explore our dental services</a><a href="/team/">Meet our dental team</a><a href="/first-appointment/">Prepare for your first visit</a><a href="/contact/">Contact MidTown</a><a href="/blog/">Browse all articles</a></nav></aside>
+    </div>
+    <section class="blog-related section-wrap" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><div>{related.map(item => <a href={`/${item.path}/`}><time datetime={item.published}>{date(item.published)}</time><h3>{item.heading}</h3><span>Read article <span aria-hidden="true">→</span></span></a>)}</div></section>
+  </main>
+</SiteLayout>
