@@ -113,3 +113,11 @@ Bryan explicitly authorized enabling search indexing for the live site and submi
 ## November 3 photo and technology updates
 
 Bryan reviewed the refinement preview and explicitly authorized committing and pushing these updates to main for deployment on November 3. The homepage comfort section uses the supplied family lifestyle image, the office gallery has the salt container removed, and the technology page describes NOMAD, TRIOS, SprintRay, Pearl and CEREC while retaining existing CT/Yomi/laser topics and section anchors. See `docs/refinements-2026-11-03.md` for sources and review boundaries. These changes do not close the separate legal, clinical-review, insurance, ownership or tracking follow-ups.
+
+## November 4 approved PPC landing pages
+
+Bryan approved the reviewed `/ppc-general/` and `/ppc-delta-dental/` pages for production on November 4. They share the approved green/cream design, supplied photos, call-only conversion links to (414) 261-3376 and qualified Delta wording limited to Dr. Crego’s directory evidence. The landing pages use `noindex, follow` and remain excluded from the organic sitemap. This approval supersedes the initial local-only boundary; the private readiness report retains source decisions and verification history.
+
+The confirmed GTM-5VCK88W2 loader and initialization are present once in both the main shared layout and separate PPC layout. GTM-5LBN5TPG in the original briefs is superseded. The header-only release was independently deployed at 185bf6b. Installing the loader does not establish Ads conversions or forwarding-number attribution. Jordan’s Ads action/labels and forwarding tests, practice phone routing/handling and the existing approved-privacy/Termageddon follow-up remain separate. No new broad Delta participation or claims-handling promises were added.
+
+Publication evidence is kept privately under `outputs/ppc-publication-2026-11-04/`, linked from [the continuation report](outputs/launch-2026-11-02/READINESS.md). Original local-draft evidence remains under `outputs/ppc-drafts-2026-11-04/`.

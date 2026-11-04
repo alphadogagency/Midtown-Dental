@@ -1,0 +1,13 @@
+---
+import { reviews } from '../../data/ppc';
+import CallLink from './CallLink.astro';
+---
+<section class="ppc-section ppc-reviews" aria-labelledby="reviews-title"><div class="ppc-wrap">
+  <div class="ppc-section-heading"><h2 id="reviews-title">A few words<br /><em>from our patients.</em></h2><p>Their experiences, in their own words.</p></div>
+  <div class="ppc-review-grid">{reviews.map((r,i) => <figure class:list={{'ppc-review-featured':i===0}}>
+    <div class="ppc-stars" aria-label="5 out of 5 stars">★★★★★</div>
+    <blockquote>“{r.quote}”</blockquote><figcaption>{r.name}<span>Google review</span></figcaption>
+  </figure>)}</div>
+  <p class="ppc-note">Reviews describe individual experiences. Appointment availability varies.</p>
+  <CallLink location="reviews" label="Call to schedule your visit" />
+</div></section>

@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import { dentists } from '../../data/ppc';
+import { practiceImages } from '../../data/images';
+import CallLink from './CallLink.astro';
+interface Props { delta?: boolean; }
+const { delta = false } = Astro.props;
+---
+<section class="ppc-section ppc-dentists" aria-labelledby="dentists-title">
+  <div class="ppc-wrap">
+    <div class="ppc-section-heading"><h2 id="dentists-title">Meet your<br /><em>Wauwatosa dentists.</em></h2><p>Real people. Thoughtful care. A team that takes the time to know you.</p></div>
+    <div class="ppc-dentist-grid">{dentists.map(d => <article>
+      <Image src={practiceImages[d.image]} width={400} height={500} widths={[240,400]} sizes="(max-width: 600px) 90vw, (max-width: 1000px) 44vw, 22vw" fit="cover" format="webp" alt={`${d.name}, dentist at MidTown Dental Care in Wauwatosa`} loading="lazy" />
+      <h3>{d.name}</h3><p class="ppc-dentist-focus">{d.subtitle}</p><p>{d.bio}</p>
+    </article>)}</div>
+    {delta && <p class="ppc-note">Delta Dental participation varies by dentist and plan. Confirm the network for the dentist you’ll see before scheduling.</p>}
+    <CallLink location="dentists" label="Call to meet your new dentist" />
+  </div>
+</section>

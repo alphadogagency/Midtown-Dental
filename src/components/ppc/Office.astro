@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import work from '../../assets/images/ppc/work.jpg';
+import chair from '../../assets/images/ppc/chair.jpg';
+import reception from '../../assets/images/office-reception-updated.png';
+import lounge from '../../assets/images/office-lounge-clean.png';
+import CallLink from './CallLink.astro';
+interface Props { delta?: boolean; }
+const { delta = false } = Astro.props;
+---
+<section class="ppc-section ppc-office" aria-labelledby="office-title"><div class="ppc-wrap">
+  <div class="ppc-office-grid">
+    <div class="ppc-office-photo"><Image src={work} width={800} height={960} widths={[480,800]} sizes="(max-width: 760px) 90vw, 44vw" format="webp" fit="cover" alt="Treatment area with wood cabinetry at MidTown Dental Care in Wauwatosa" loading="lazy" /></div>
+    <div><p class="ppc-kicker">Right here on North Avenue</p><h2 id="office-title">A modern Tosa dentist office.<br /><em>A personal touch.</em></h2>
+      <p>MidTown Dental Care has cared for families at the same North Avenue location for more than 40 years. We pair that hometown care with modern dental technology.</p>
+      <dl class="ppc-care-list">
+        <div><dt>Modern care, close to home</dt><dd>CEREC® same-day crowns, cone beam CT, digital X-rays and impressions, and in-office 3D printing.</dd></div>
+        <div><dt>Room to feel comfortable</dt><dd>A team that explains your options and nitrous oxide for patients who feel anxious.</dd></div>
+        <div><dt>Let’s talk through the cost</dt><dd>Financing through Cherry, CareCredit and Sunbit.{!delta && ' No insurance? Ask about our in-house membership plan.'}</dd></div>
+      </dl>
+      <CallLink location="why_us" label="Call now — new patients welcome" />
+    </div>
+  </div>
+  <div class="ppc-office-strip">
+    <Image src={reception} width={640} height={440} widths={[360,640]} sizes="(max-width: 600px) 86vw, 29vw" fit="cover" format="webp" alt="Sunlit reception and waiting room at MidTown Dental Care" loading="lazy" />
+    <Image src={lounge} width={640} height={440} widths={[360,640]} sizes="(max-width: 600px) 86vw, 29vw" fit="cover" format="webp" alt="Comfortable waiting area beside the office fireplace" loading="lazy" />
+    <Image src={chair} width={640} height={440} widths={[360,640]} sizes="(max-width: 600px) 86vw, 29vw" fit="cover" format="webp" alt="Dental chair and digital equipment in a MidTown treatment room" loading="lazy" />
+  </div>
+</div></section>

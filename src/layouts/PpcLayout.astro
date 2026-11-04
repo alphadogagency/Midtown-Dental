@@ -1,0 +1,84 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { practice, practiceSchema } from '../data/practice';
+import CallLink from '../components/ppc/CallLink.astro';
+import serifFont from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import sansFont from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '../styles/ppc.css';
+interface Props { title: string; description: string; slug: string; hero: ImageMetadata; faq: {q:string;a:string}[]; delta?: boolean; }
+const { title, description, slug, hero, faq, delta = false } = Astro.props;
+const canonical = `${practice.site}/${slug}/`;
+const heroImage = await getImage({src:hero,width:1000,format:'webp',quality:80});
+const heroSources = await Promise.all([480,720,1000].map(width => getImage({ src:hero, width, height:Math.round(width*1.1), fit:'cover', format:'webp', quality:80 })));
+const business = { ...practiceSchema, telephone:practice.newPatientTelephone, image:new URL(heroImage.src,practice.site).href };
+const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity:faq.map(({q,a})=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}})) };
+---
+<!doctype html><html lang="en"><head>
+    <script is:inline async src="https://www.googletagmanager.com/gtm.js?id=GTM-5VCK88W2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title><meta name="description" content={description} />
+  <meta name="robots" content="noindex, follow" /><link rel="canonical" href={canonical} />
+  <meta name="theme-color" content="#183e35" /><link rel="icon" href="/images/favicon.png" />
+  <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin /><link rel="preload" href={sansFont} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href={heroSources[2].src} imagesrcset={heroSources.map((img,i)=>`${img.src} ${[480,720,1000][i]}w`).join(', ')} imagesizes="(max-width: 760px) 92vw, 46vw" />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(heroImage.src,practice.site).href} />
+  <script type="application/ld+json" set:html={JSON.stringify(business)} /><script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</head><body data-landing-page={slug}>
+  <a class="ppc-skip" href="#main">Skip to content</a>
+  <header class="ppc-header" id="top"><div class="ppc-header-inner">
+    <a href="#top" aria-label="MidTown Dental Care — top of page" class="ppc-logo"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /></a>
+    <div class="ppc-header-contact"><span>New patients welcome</span><CallLink location="header" compact /></div>
+  </div></header>
+  <slot />
+  <footer class="ppc-footer"><div class="ppc-wrap">
+    <div class="ppc-footer-main"><img src="/images/midtown-logo.webp" width="318" height="111" alt="MidTown Dental Care" /><div><strong>MidTown Dental Care, S.C.</strong><p>8726 W. North Ave<br />Wauwatosa, WI 53226</p><CallLink location="footer" text /></div><div class="ppc-footer-links"><a href="/privacy-policy/">Privacy policy</a></div></div>
+    {delta && <p class="ppc-disclaimer">MidTown Dental Care is an independent dental practice. We are not affiliated with or operated by Delta Dental. “Delta Dental” and “Delta Dental Premier” are registered trademarks of Delta Dental Plans Association. Dr. Mark Crego is listed in the PPO and Premier directories at this office; network participation must be confirmed for your dentist and plan. Coverage varies by plan; please refer to your plan documents for benefit details.</p>}
+    <p class="ppc-copyright">© {new Date().getFullYear()} MidTown Dental Care.</p>
+  </div></footer>
+  <div class="ppc-mobile-call" hidden><CallLink location="sticky_mobile" label="Tap to call" light /></div>
+  <script>
+    import { officeState, phoneClickPayload } from '../scripts/ppc-state.mjs';
+    const siteWindow = window as Window & { dataLayer?: Record<string,unknown>[] };
+    // Confirmed container is loaded in the head; Ads conversion and number-swap setup remain separate.
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[data-cta-location]') : null;
+      if (!target?.getAttribute('href')?.startsWith('tel:')) return;
+      (siteWindow.dataLayer ||= []).push(phoneClickPayload(document.body.dataset.landingPage, target.dataset.ctaLocation));
+    });
+    function refreshHours() {
+      const state = officeState();
+      document.querySelectorAll<HTMLElement>('[data-office-hours]').forEach(node => { node.textContent = state.copy; });
+      document.querySelectorAll<HTMLElement>('[data-weekdays]').forEach(node => {
+        const today = node.dataset.weekdays?.split(',').includes(state.weekday);
+        node.classList.toggle('is-today', Boolean(today));
+        const marker = node.querySelector<HTMLElement>('[data-today]');
+        if(marker) marker.hidden = !today;
+      });
+      document.querySelectorAll<HTMLElement>('[data-benefit-season]').forEach(node => { node.hidden = node.dataset.benefitSeason !== state.season; });
+    }
+    refreshHours(); setInterval(refreshHours, 60000);
+    const heroCall = document.getElementById('hero-call');
+    const bar = document.querySelector<HTMLElement>('.ppc-mobile-call');
+    const updateSticky = () => { if(bar && heroCall) bar.hidden = heroCall.getBoundingClientRect().bottom > 0; };
+    window.addEventListener('scroll', updateSticky, {passive:true}); updateSticky();
+    document.querySelector<HTMLButtonElement>('[data-load-map]')?.addEventListener('click', (event) => {
+      const button = event.currentTarget as HTMLButtonElement;
+      const frame = document.createElement('iframe');
+      frame.src = 'https://maps.google.com/maps?q=8726%20W%20North%20Ave%2C%20Wauwatosa%2C%20WI%2053226&output=embed';
+      frame.title = 'Map of MidTown Dental Care in Wauwatosa'; frame.loading='lazy'; frame.referrerPolicy='no-referrer-when-downgrade';
+      button.replaceWith(frame); frame.focus();
+    });
+  </script>
+</body></html>

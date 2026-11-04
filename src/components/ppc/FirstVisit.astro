@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import chair from '../../assets/images/ppc/chair.jpg';
+import CallLink from './CallLink.astro';
+interface Props { delta?: boolean; }
+const { delta = false } = Astro.props;
+const steps = delta ? [
+ { title:'Tell us about your plan', body:'Call our new patient line and let us know you have Delta Dental. Have your member card handy when you discuss your appointment.' },
+ { title:'Confirm your dentist and benefits', body:'Check your plan’s network and benefits before booking. Participation and coverage depend on the dentist and your specific plan.' },
+ { title:'Come in for your first visit', body:'Plan for about 90 minutes for X-rays, a periodontal and dental exam, and a cleaning following the hygienist’s assessment. Some gum conditions need additional visits.' },
+] : [
+ { title:'Call us', body:'Our front desk will talk through the next available appointments and find a time that works for you.' },
+ { title:'Your first visit', body:'Plan for about 90 minutes for X-rays, a periodontal and dental exam, and a cleaning following the hygienist’s assessment. Some gum conditions need additional visits.' },
+ { title:'Your plan, your choice', body:'Your dentist walks you through what we found and your options, so you can make an informed decision.' },
+];
+---
+<section class="ppc-section ppc-first-visit" aria-labelledby="visit-title"><div class="ppc-wrap ppc-visit-grid">
+  <div><p class="ppc-kicker">A simple place to start</p><h2 id="visit-title">{delta ? 'Using your Delta Dental benefits starts with a call.' : 'Booking your dentist appointment is easy.'}</h2>
+    <ol class="ppc-steps">{steps.map((step,i)=><li><span aria-hidden="true">0{i+1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol>
+    <CallLink location={delta ? 'how_it_works' : 'first_visit'} label="Call to book your first visit" />
+  </div>
+  <Image src={chair} width={700} height={900} widths={[400,700]} sizes="(max-width: 760px) 90vw, 35vw" fit="cover" format="webp" alt="Treatment room with a dental chair at our Wauwatosa dentist office" loading="lazy" />
+</div></section>

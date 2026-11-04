@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import PpcLayout from '../../layouts/PpcLayout.astro';
+import CallLink from './CallLink.astro';
+import Reviews from './Reviews.astro';
+import Dentists from './Dentists.astro';
+import Office from './Office.astro';
+import FirstVisit from './FirstVisit.astro';
+import { landing, type LandingKind } from '../../data/ppc';
+import { practice } from '../../data/practice';
+import family from '../../assets/images/family-at-home.jpg';
+import woman from '../../assets/images/ppc/woman.jpg';
+import man from '../../assets/images/ppc/man.jpg';
+import senior from '../../assets/images/ppc/senior.jpg';
+import exterior from '../../assets/images/ppc/exterior.jpg';
+import lounge from '../../assets/images/office-lounge-clean.png';
+interface Props { kind: LandingKind; }
+const { kind } = Astro.props;
+const delta = kind === 'delta';
+const page = landing[kind];
+const hero = delta ? woman : family;
+const services = [
+ { title: delta ? 'Preventive cleanings & exams' : 'Dental cleanings & checkups', body: 'Cleanings, exams and digital X-rays to help keep small problems from becoming big ones.' },
+ { title: 'Fillings & restorations', body: 'Natural-looking, tooth-colored composite fillings.' },
+ { title: 'Same-day crowns', body: 'CEREC® technology makes a finished crown in a single visit an option right here in our office.' },
+ { title: 'Kids’ dentistry', body: 'Gentle, positive visits for children. Dr. AnnMarie Hoyme enjoys helping young patients feel comfortable.' },
+ { title: 'Gum health', body: 'Periodontal therapy to care for your gums and the foundation of your smile.' },
+ { title: 'Cosmetic & implant options', body: 'Whitening, clear aligners, veneers and dental implants, including Yomi® robot-assisted placement.' },
+];
+---
+<PpcLayout {...page} hero={hero} delta={delta}>
+<main id="main">
+  <section class:list={['ppc-hero',{'ppc-hero--delta':delta}]} aria-labelledby="hero-title">
+    <div class="ppc-wrap ppc-hero-grid">
+      <div class="ppc-hero-copy"><p class="ppc-kicker">MidTown Dental Care · Wauwatosa, WI</p>
+        {delta && <p class="ppc-network-label">Delta Dental PPO & Premier®</p>}
+        <h1 id="hero-title">{delta ? <>Your Delta Dental dentist<br /><em>in Wauwatosa.</em></> : <>Your trusted dentist<br /><em>in Wauwatosa.</em></>}</h1>
+        <p class="ppc-lead">{page.intro}</p>
+        <CallLink id="hero-call" location="hero" label={page.heroCall} />
+        <p class="ppc-hours-note" data-office-hours>Call to book. Office hours: Mon–Thu 8–5 · Fri 8–3.</p>
+        <p class="ppc-hero-trust">40+ years in Tosa <span aria-hidden="true">/</span> New patients welcome</p>
+      </div>
+      <div class="ppc-hero-visual"><Image src={hero} width={1000} height={1100} widths={[480,720,1000]} sizes="(max-width: 760px) 92vw, 46vw" fit="cover" format="webp" quality={80} loading="eager" fetchpriority="high" alt={delta ? 'A smiling woman in a sunlit room' : 'A mother smiling as her young daughter kisses her cheek'} />
+        <p>{delta ? 'Your smile. Your neighborhood.' : 'For every generation of your family.'}</p>
+      </div>
+    </div>
+  </section>
+  <section class="ppc-trust" aria-label="Care at MidTown"><div class="ppc-wrap">
+    <p>{delta ? 'Plan-specific network confirmation' : 'Family dentistry — kids to seniors'}</p><p>Same-day crowns with CEREC®</p><p>Nitrous oxide available</p><CallLink location="trust_bar" text />
+  </div></section>
+  {delta && <>
+    <section class="ppc-section ppc-benefits" aria-labelledby="benefits-title"><div class="ppc-wrap ppc-benefits-grid">
+      <div><p class="ppc-kicker">Make time for your smile</p><h2 id="benefits-title">Put your Delta Dental<br /><em>benefits to work.</em></h2>
+        <div data-benefit-season="year-end" hidden><p>Many dental plans run on a calendar year. Unused benefits may reset on January 1. If you’re planning a cleaning or checkup, call to discuss an appointment before year-end.</p></div>
+        <div data-benefit-season="evergreen"><p>A cleaning or checkup is a good reason to review your Delta Dental benefits. Check your benefit period and plan details, then call to discuss your next visit.</p></div>
+        <p class="ppc-note">Benefit periods, coverage and availability vary. Your plan documents determine your benefits.</p><CallLink location="benefits_reset" label="Call about your next visit" />
+      </div><Image src={senior} width={600} height={650} widths={[360,600]} sizes="(max-width: 760px) 90vw, 34vw" fit="cover" format="webp" alt="A smiling older woman wearing glasses" loading="lazy" />
+    </div></section>
+    <FirstVisit delta />
+  </>}
+  <section class="ppc-section ppc-services" aria-labelledby="services-title"><div class="ppc-wrap">
+    <div class="ppc-section-heading"><h2 id="services-title">{delta ? <>Care your Delta Dental<br />plan <em>may help cover.</em></> : <>A general dentist<br />for <em>every smile.</em></>}</h2><p>{delta ? 'Family dentistry, all in one familiar place. Coverage depends on your specific plan, the treatment you need and your dentist’s network participation.' : 'From routine dental cleanings to same-day crowns, our Wauwatosa dentist office handles your family’s everyday dental care under one roof.'}</p></div>
+    <div class="ppc-services-layout"><div class="ppc-service-list">{services.map((s,i)=><article><span aria-hidden="true">0{i+1}</span><div><h3>{s.title}</h3><p>{s.body}</p></div></article>)}</div>
+      <div class="ppc-smiles" role={delta ? undefined : 'region'} aria-label={delta ? undefined : 'Smiles across generations'} tabindex={delta ? undefined : 0}>{delta ? <Image src={family} width={800} height={1100} widths={[480,800]} sizes="(max-width: 760px) 90vw, 32vw" fit="cover" format="webp" alt="A mother and daughter sharing a happy moment" loading="lazy" /> : <>
+        <Image src={man} width={520} height={360} widths={[360,520]} sizes="(max-width: 760px) 70vw, 32vw" fit="cover" format="webp" alt="A smiling man outdoors" loading="lazy" />
+        <Image src={woman} width={520} height={360} widths={[360,520]} sizes="(max-width: 760px) 70vw, 32vw" fit="cover" format="webp" alt="A smiling woman" loading="lazy" />
+        <Image src={senior} width={520} height={360} widths={[360,520]} sizes="(max-width: 760px) 70vw, 32vw" fit="cover" format="webp" alt="A smiling older woman" loading="lazy" />
+      </>}</div>
+    </div>
+    <div class="ppc-section-close"><p>{delta ? 'Have your member card handy when you call to discuss your plan.' : 'Not sure what you need? Call and we’ll help you figure it out.'}</p><CallLink location={delta ? 'coverage' : 'services'} label={delta ? 'Call about your coverage' : 'Call to book your cleaning'} /></div>
+  </div></section>
+  <Reviews />
+  {!delta && <Office />}
+  <Dentists delta={delta} />
+  {delta ? <Office delta /> : <FirstVisit />}
+  <section class="ppc-section ppc-faq" aria-labelledby="faq-title"><div class="ppc-wrap ppc-faq-grid">
+    <div><p class="ppc-kicker">A little clarity, before you call</p><h2 id="faq-title">{delta ? <>Delta Dental<br /><em>questions, answered.</em></> : <>Questions about<br /><em>your first visit.</em></>}</h2><p>Still have questions? We’re happy to talk.</p><CallLink location="faq" label="Call our team" /></div>
+    <div class="ppc-questions">{page.faq.map((faq,i)=><details open={i===0}><summary>{faq.q}<span aria-hidden="true">+</span></summary><p>{faq.a}</p></details>)}</div>
+  </div></section>
+  <section class="ppc-section ppc-location" aria-labelledby="location-title"><div class="ppc-wrap ppc-location-grid">
+    <div><Image src={exterior} width={800} height={800} position="left" widths={[480,800]} sizes="(max-width: 760px) 90vw, 45vw" fit="cover" format="webp" alt="MidTown Dental Care’s brick building on West North Avenue in Wauwatosa" loading="lazy" /><div class="ppc-map"><button type="button" data-load-map>View office map <span aria-hidden="true">↗</span></button></div></div>
+    <div><p class="ppc-kicker">Your neighborhood dental home</p><h2 id="location-title">{delta ? <>A Delta Dental dentist<br /><em>in Wauwatosa.</em></> : <>Your Wauwatosa dentist<br /><em>on North Avenue.</em></>}</h2>
+      <p>Find us on W. North Ave in Wauwatosa, serving Tosa and greater Milwaukee.</p><address><a href={practice.maps} target="_blank" rel="noopener noreferrer">8726 W. North Ave<br />Wauwatosa, WI 53226 <span aria-hidden="true">↗</span></a></address>
+      <table class="ppc-hours"><caption>Office hours · Central Time</caption><tbody>
+        <tr data-weekdays="Mon,Tue,Wed,Thu"><th scope="row">Monday–Thursday <span data-today hidden>Today</span></th><td>8 AM–5 PM</td></tr>
+        <tr data-weekdays="Fri"><th scope="row">Friday <span data-today hidden>Today</span></th><td>8 AM–3 PM</td></tr>
+        <tr data-weekdays="Sat,Sun"><th scope="row">Saturday–Sunday <span data-today hidden>Today</span></th><td>Closed</td></tr>
+      </tbody></table><CallLink location="location" label="Call for directions or to book" />
+    </div>
+  </div></section>
+  <section class="ppc-final" aria-labelledby="final-title"><Image src={lounge} width={1600} height={700} widths={[640,1000,1600]} sizes="100vw" fit="cover" format="webp" alt="" loading="lazy" />
+    <div class="ppc-wrap"><p class="ppc-kicker">New patients welcome</p><h2 id="final-title">{delta ? <>Your Delta Dental questions.<br /><em>A real conversation.</em></> : <>Your next dentist appointment<br /><em>starts with a call.</em></>}</h2><p>{delta ? 'Call MidTown Dental Care to discuss your plan and a visit with a Delta Dental dentist in Wauwatosa.' : 'Call MidTown Dental Care today to book your dentist appointment in Wauwatosa.'}</p><CallLink location="final_cta" label="Call MidTown Dental Care" light /><p class="ppc-hours-note" data-office-hours>Call to book. Office hours: Mon–Thu 8–5 · Fri 8–3.</p></div>
+  </section>
+</main>
+</PpcLayout>

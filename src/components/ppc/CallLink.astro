@@ -1,0 +1,9 @@
+---
+import { practice } from '../../data/practice';
+interface Props { location: string; label?: string; light?: boolean; compact?: boolean; text?: boolean; id?: string; }
+const { location, label, light=false, compact=false, text=false, id } = Astro.props;
+---
+<a id={id} class:list={['ppc-call', { 'ppc-call--light': light, 'ppc-call--compact': compact, 'ppc-call--text': text }]} href={`tel:${practice.newPatientTelephone}`} data-cta-location={location} aria-label={`${label ? label + '. ' : ''}Call MidTown Dental Care at ${practice.newPatientPhone}`}>
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3 4 4c-2 1 1 8 5 12s11 7 12 5l1-3-5-3-2 2c-3-1-7-5-8-8l2-2-2-4Z" /></svg>
+  <span>{label && <span class="ppc-call-label">{label}</span>}<span class="js-phone">{practice.newPatientPhone}</span></span>
+</a>
