@@ -26,6 +26,12 @@ const touchIcon = await getImage({ src: favicon, width: 180, height: 180, format
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline async src="https://www.googletagmanager.com/gtm.js?id=GTM-5VCK88W2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
