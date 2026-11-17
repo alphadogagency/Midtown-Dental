@@ -1,0 +1,47 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { practice } from '../data/practice';
+import '../styles/interior.css';
+---
+
+<SiteLayout
+  title="Interim Privacy Information | MidTown Dental Care"
+  description="Interim information about MidTown Dental Care’s website, appointment form and privacy contact. Full privacy-policy details are pending."
+>
+  <main id="main" class="section-wrap privacy-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Privacy information</span>
+    </nav>
+    <h1>Interim website<br />privacy information</h1>
+    <p class="privacy-intro">This page provides limited information about the MidTown Dental Care website while fuller details about the practice’s data handling are pending. It is not a complete privacy policy or a HIPAA Notice of Privacy Practices.</p>
+
+    <section aria-labelledby="appointment-requests">
+      <h2 id="appointment-requests">Appointment requests</h2>
+      <p>Our appointment request form is hosted by Jotform. It asks for your name, phone number, email address, preferred contact method, whether you are a new or existing patient, and permission to contact you about your request. The form also includes an hCaptcha verification check.</p>
+      <p>An appointment request does not book a visit. Please do not include medical or financial details in a general inquiry. For the form, visit <a href="/appointment/">Request an appointment</a>.</p>
+    </section>
+
+    <section aria-labelledby="website-services">
+      <h2 id="website-services">Website services and links</h2>
+      <p>This website loads Google Tag Manager. Full details of the site’s tracking technologies, their purposes and any available choices are still being confirmed.</p>
+      <p>The website also links to separate patient-form, payment, map and social-media services. Review the information and privacy notices provided by those services before sharing information with them. Our <a href="/payment/">payment information page</a> includes links to payment services.</p>
+    </section>
+
+    <section aria-labelledby="privacy-questions">
+      <h2 id="privacy-questions">Privacy questions</h2>
+      <p>For privacy questions, contact MidTown Dental Care at <a href={`tel:${practice.telephone}`}>{practice.phone}</a> or <a href={`mailto:${practice.email}`}>{practice.email}</a>. You can also find the practice’s address on our <a href="/contact/">Contact page</a>. Please avoid sending sensitive medical or financial details by general email.</p>
+    </section>
+  </main>
+</SiteLayout>
+
+<style>
+  .privacy-page{max-width:1000px;padding-top:40px;padding-bottom:88px}
+  .breadcrumbs{margin-bottom:40px}
+  h1{font:400 clamp(42px,5.2vw,70px)/1.08 var(--serif);letter-spacing:-.025em;margin:0 0 28px}
+  .privacy-intro{font-size:1.1rem;padding-bottom:34px;border-bottom:1px solid var(--line)}
+  section{margin-top:34px}
+  h2{font:400 clamp(28px,3vw,36px)/1.2 var(--serif);margin:0 0 14px}
+  p{max-width:46rem;line-height:1.8;color:var(--muted);margin:0 0 16px}
+  p a{color:var(--green);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+  @media(max-width:600px){.privacy-page{padding-top:28px;padding-bottom:54px}.breadcrumbs{margin-bottom:28px}.privacy-intro{font-size:1rem;padding-bottom:25px}section{margin-top:28px}}
+</style>
