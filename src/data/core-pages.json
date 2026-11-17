@@ -156,18 +156,6 @@
     "source": "https://www.midtowndentalcare.org/dental-services/"
   },
   {
-    "path": "services",
-    "kind": "services",
-    "image": "",
-    "name": "Dental services",
-    "eyebrow": "For every stage of life",
-    "title": "Dental Services - Implants, Dentures, Veneers | MidTown Dental Care",
-    "description": "We offer comprehensive dental services to all of our patients. These services range from preventive, dental maintenance to implants, dentures, veneers and reconstructive and cosmetic smile makeovers.",
-    "h1": "Dental Services",
-    "html": "",
-    "source": "https://www.midtowndentalcare.org/services/"
-  },
-  {
     "path": "team/about",
     "kind": "practice",
     "image": "",
@@ -484,19 +472,6 @@
     "title": "Cherry Financing in Wauwatosa | Flexible Dental Payment Options",
     "description": "Get the care you need now and pay over time. Learn about Cherry Financing options available at our Wauwatosa dental office.",
     "source": "https://www.midtowndentalcare.org/cherry-financing/",
-    "html": "<h2 id=\"explore-cherry-payment-options\">Explore Cherry payment options</h2>\n<p>MidTown Dental Care offers Cherry as one of its dental financing options. You can review available plans and application details directly with Cherry.</p>\n<p>Our team can help you understand your treatment estimate before you choose a payment option.</p>\n<p><a href=\"https://pay.withcherry.com/midtown-dental-care-wi\">View MidTown Dental Care’s Cherry application</a></p>\n<h2 id=\"talk-through-your-options\">Talk through your options</h2>\n<p>You can also learn about our <a href=\"/payment/\">other payment options</a>, explore the <a href=\"/membership/\">MidTown Dental Membership</a>, or <a href=\"/contact/\">contact our team</a> with a question.</p>",
-    "intro": "Review payment options for your dental care, with help from our team when you need it."
-  },
-  {
-    "path": "cherry-payment-plan",
-    "kind": "financing",
-    "image": "",
-    "name": "Cherry financing",
-    "eyebrow": "Payment options for your care",
-    "h1": "Cherry Payment Plan",
-    "title": "Cherry Payment Plan | MidTown Dental Care",
-    "description": "Learn about cherry financing at MidTown Dental Care in Wauwatosa. Explore your options and contact our team with questions.",
-    "source": "https://www.midtowndentalcare.org/cherry-payment-plan/",
     "html": "<h2 id=\"explore-cherry-payment-options\">Explore Cherry payment options</h2>\n<p>MidTown Dental Care offers Cherry as one of its dental financing options. You can review available plans and application details directly with Cherry.</p>\n<p>Our team can help you understand your treatment estimate before you choose a payment option.</p>\n<p><a href=\"https://pay.withcherry.com/midtown-dental-care-wi\">View MidTown Dental Care’s Cherry application</a></p>\n<h2 id=\"talk-through-your-options\">Talk through your options</h2>\n<p>You can also learn about our <a href=\"/payment/\">other payment options</a>, explore the <a href=\"/membership/\">MidTown Dental Membership</a>, or <a href=\"/contact/\">contact our team</a> with a question.</p>",
     "intro": "Review payment options for your dental care, with help from our team when you need it."
   },

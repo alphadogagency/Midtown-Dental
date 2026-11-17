@@ -1,3 +1,9 @@
+# Consolidate duplicate directory/financing pages; nested services stay unchanged.
+/services/ /dental-services/ 301
+/services /dental-services/ 301
+/cherry-payment-plan/ /cherry-financing/ 301
+/cherry-payment-plan /cherry-financing/ 301
+
 # Legacy links found returning 404 on November 2, 2026.
 # These three matching destinations are built. This is not the full migration map.
 /services/preventive-dentistry/ /services/preventative-dentistry/ 301

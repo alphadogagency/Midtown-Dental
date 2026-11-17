@@ -125,3 +125,7 @@ Publication evidence is kept privately under `outputs/ppc-publication-2026-11-04
 ## November 16 interim privacy information
 
 Bryan authorized a short factual interim page at `/privacy-policy/` and publication to main. It describes the visible Jotform fields and hCaptcha, the installed Google Tag Manager, external service links, and the published practice contact. It explicitly states that it is not a complete privacy policy or HIPAA Notice of Privacy Practices. No retention, disclosure, security or compliance promises are inferred. The existing footer links to this page and the sitemap includes it; existing production/preview/PPC/utility indexing rules are unchanged. This resolves the broken destination only. Full approved policy details and the patient notice remain open. Private source/verification evidence and an unsent Kyle email are in `outputs/interim-privacy-2026-11-16/`.
+
+## November 16 duplicate URL consolidation
+
+Bryan authorized permanent redirects from `/services/` to `/dental-services/` and `/cherry-payment-plan/` to `/cherry-financing/`. Both slash variants are matched exactly in `public/_redirects`; no `/services/*` wildcard is used. The two duplicate data records are retired so Astro emits no source HTML and the generated sitemap lists only the retained destinations. Nested service pages, destination content, and privacy/tracking/form/indexing settings are unchanged. Private source comparison and release evidence: `outputs/duplicate-redirects-2026-11-16/`.
